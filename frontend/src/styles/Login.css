@@ -1,0 +1,137 @@
+/* .login-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+}
+
+.login-header .logo svg {
+    margin: 10px 50px 10px 50px;
+} */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    position: relative;
+    z-index: 1; 
+
+    overflow: hidden;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    height: max-content;
+    padding: 20px;
+    margin: 0 10% 0 10%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+
+.login-form input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4rem;
+    font-size: 16px;
+    text-align: center;
+}
+
+.login-form input::placeholder {
+    text-align: center;
+}
+
+.login-form input:focus::placeholder {
+    color: transparent;
+}
+
+.login-form button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    padding: 10px;
+    background-color: #89e219;
+    color: #fff;
+    border: none;
+    border-radius: 4rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #98f02d;
+}
+
+.register-link {
+    display: flex;
+    justify-content: center;
+    cursor: default;
+}
+
+.register-link .redirect-link {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #89e219;
+    cursor: pointer;
+}
+
+.register-link .redirect-link:hover {
+    text-decoration: underline;
+}
+
+.forgot-password {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: default;
+}
+
+.forgot-password p {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #89e219;
+    cursor: pointer;
+}
+
+.forgot-password p:hover {
+    text-decoration: underline;
+}
+
+.login-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    position: absolute;
+    z-index: -1;
+}
+
+.login-svg svg {
+    min-height: 700px;
+    width: auto;
+}   

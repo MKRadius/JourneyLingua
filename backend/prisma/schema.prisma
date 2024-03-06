@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+model User {
+  userId   Int     @id @default(autoincrement())
+  username String  @unique @db.VarChar(50)
+  password String  @db.Char(60)
+  email    String  @unique @db.VarChar(100)
+  firstname String  @db.VarChar(50)
+  lastname String  @db.VarChar(50)
+  streak   Int?
+  Learn    Learn[]
+}
+
+model Learn {
+  user       User     @relation(fields: [userId], references: [userId])
+  userId     Int
+  language   Language @relation(fields: [languageId], references: [languageId])
+  languageId Int
+  level      Int      @default(1)
+
+  @@id([userId, languageId])
+}
+
+model Language {
+  languageId   Int        @id @default(autoincrement())
+  languageName String     @db.VarChar(50)
+  Learn        Learn[]
+  Exercise     Exercise[]
+}
+
+model Exercise {
+  exerciseId      Int
+  language        Language          @relation(fields: [languageId], references: [languageId])
+  languageId      Int
+  MakeASentenceEx MakeASentenceEx[]
+  ImageToTextEx   ImageToTextEx[]
+
+  @@id([exerciseId, languageId])
+}
+
+model MakeASentenceEx {
+  sentenceId         Int      @id @default(autoincrement())
+  sentence           String   @db.VarChar(150)
+  exercise           Exercise @relation(fields: [exerciseId, languageId], references: [exerciseId, languageId])
+  exerciseId Int
+  languageId Int
+}
+
+model ImageToTextEx {
+  wordId             Int      @id @default(autoincrement())
+  wordEng            String   @db.VarChar(50)
+  wordFin            String   @db.VarChar(50)
+  category           String?  @db.VarChar(50)
+  subCategory        String?  @db.VarChar(50)
+  imageLink          String   @db.VarChar(100)
+  exercise           Exercise @relation(fields: [exerciseId, languageId], references: [exerciseId, languageId])
+  exerciseId Int
+  languageId Int
+}

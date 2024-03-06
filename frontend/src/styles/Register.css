@@ -1,0 +1,139 @@
+/* .register-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(247, 247, 247);
+    border: 1px solid #ddd;
+}
+
+.register-header .logo svg {
+    margin: 10px 50px 10px 50px;
+} */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    position: relative;
+    z-index: 1; 
+
+    overflow: hidden;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
+    height: max-content;
+    padding: 20px;
+    margin: 0 10% 0 10%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.register-form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+
+.register-form input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4rem;
+    font-size: 16px;
+    text-align: center;
+}
+
+.register-form input::placeholder {
+    text-align: center;
+}
+
+.register-form input:focus::placeholder {
+    color: transparent;
+}
+
+.register-form button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 40%;
+    padding: 10px;
+    background-color: #89e219;
+    color: #fff;
+    border: none;
+    border-radius: 4rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    background-color: #98f02d;
+}
+
+.register-link {
+    display: flex;
+    justify-content: center;
+    cursor: default;
+}
+
+.register-link .redirect-link {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #89e219;
+    cursor: pointer;
+}
+
+.register-link .redirect-link:hover {
+    text-decoration: underline;
+}
+
+.forgot-password {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: default;
+}
+
+.forgot-password p {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #89e219;
+    cursor: pointer;
+}
+
+.forgot-password p:hover {
+    text-decoration: underline;
+}
+
+.register-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    position: absolute;
+    z-index: -1;
+}
+
+.register-svg svg {
+    min-height: 700px;
+    width: auto;
+}   
