@@ -8,6 +8,7 @@ import Register from './components/Register'
 import { useAuthContext } from './hooks/useContext'
 
 import './styles/App.css'
+import Profile from "./components/Profile.tsx";
 
 const App: React.FC = () => {
   const { user, token, isAuth } = useAuthContext();
@@ -19,6 +20,9 @@ const App: React.FC = () => {
           <Route path="/" element={ !(user && token && isAuth) ? <Home /> : <Learn /> } />
           <Route path="/login" element={ <Login /> } />
           <Route path="/signup" element={ <Register /> } />
+          <Route path="/profile" element={ <Learn /> } />
+
+
         </Routes>
       </BrowserRouter>
     </>

@@ -53,11 +53,12 @@ model Exercise {
 }
 
 model MakeASentenceEx {
-  sentenceId Int      @id @default(autoincrement())
-  sentence   String   @db.VarChar(150)
-  exercise   Exercise @relation(fields: [exerciseId, languageId], references: [exerciseId, languageId])
-  exerciseId Int
-  languageId Int
+  sentenceId  Int      @id @default(autoincrement())
+  sentenceEng String   @db.VarChar(150)
+  sentenceFin String   @db.VarChar(150)
+  exercise    Exercise @relation(fields: [exerciseId, languageId], references: [exerciseId, languageId])
+  exerciseId  Int
+  languageId  Int
 }
 
 model ImageToTextEx {

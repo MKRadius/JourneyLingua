@@ -3,7 +3,6 @@ import express from "express";
 const router = express.Router();
 import prisma from "../prisma/prisma";
 
-// post content to db
 interface ImageToTextExRequest {
     wordEng: string;
     wordFin: string;
@@ -18,21 +17,24 @@ router.post('/lesson/imageToTextEx', async (req, res) => {
     try {
         const {wordEng, wordFin, category, subCategory, imageLink, exerciseId, languageId} = req.body;
 
+        // Validate the request body
+        const requestBody: ImageToTextExRequest = {
+            wordEng,
+            wordFin,
+            category,
+            subCategory,
+            imageLink,
+            exerciseId,
+            languageId
+        };
+
         if (!wordEng || !wordFin || !imageLink || !exerciseId || !languageId) {
             return res.status(400).json({error: "Missing required fields"});
         }
 
         // Create a new ImageToTextEx record in the database
         const createdImageToTextEx = await prisma.imageToTextEx.create({
-            data: {
-                wordEng: wordEng,
-                wordFin: wordFin,
-                category: category,
-                subCategory: subCategory,
-                imageLink: imageLink,
-                exerciseId: exerciseId,
-                languageId: languageId,
-            },
+            data: requestBody
         });
 
         res.status(201).json(createdImageToTextEx);
