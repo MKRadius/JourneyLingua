@@ -1,10 +1,9 @@
+/* NavBar.css */
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background-color: #f5f5f5;
-
     position: fixed;
     width: 100%;
     height: 75px;
@@ -14,7 +13,6 @@
 
 .nav-logo {
     margin-left: 20px;
-
 }
 
 .nav-button {
@@ -22,31 +20,145 @@
     justify-content: flex-end;
     align-items: center;
     margin-right: 20px;
-    width: 15%;
 }
 
-
 .nav-button button {
-    margin-left: 20px;
-    margin-right: 20px;
-
+    margin-left: 10px;
     cursor: pointer;
-
     background-color: #89e219;
-
     border: none;
     border-radius: 4rem;
     font-size: 16px;
-
     min-width: 100px;
-    padding: 10px;
+    padding: 10px 20px;
 }
 
 .nav-button button:hover {
     background-color: #98f02d;
 }
 
-.nav-button button a {
-    text-decoration: none;
-    text-align: center;
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 75px);
 }
+
+.home-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.home-container p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.start-learning-button {
+    background-color: #89e219;
+    color: #fff;
+    border: none;
+    border-radius: 4rem;
+    font-size: 1rem;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-learning-button:hover {
+    background-color: #98f02d;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .nav-logo h1{
+        margin-left: 10px;
+        font-size: 1.5em;
+    }
+
+    .nav-button {
+        margin-right: 10px;
+    }
+
+    .nav-button button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .home-container h1 {
+        font-size: 2rem;
+    }
+
+    .home-container p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .start-learning-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .nav-logo {
+        margin-left: 5px;
+    }
+    .nav-logo h1{
+        font-size: 1.1em;
+    }
+
+    .nav-button {
+        margin-right: 5px;
+    }
+
+    .nav-button button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .home-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .home-container p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .start-learning-button {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+}
+
+/*@media only screen and (max-width: 425px) {*/
+/*    .nav-logo {*/
+/*        margin-left: 5px;*/
+/*    }*/
+
+/*    .nav-button {*/
+/*        margin-right: 5px;*/
+/*    }*/
+
+/*    .nav-button button {*/
+/*        font-size: 12px;*/
+/*        padding: 6px 12px;*/
+/*    }*/
+
+/*    .home-container h1 {*/
+/*        font-size: 1.5rem;*/
+/*        margin-bottom: 10px;*/
+/*    }*/
+
+/*    .home-container p {*/
+/*        font-size: 0.9rem;*/
+/*        margin-bottom: 20px;*/
+/*    }*/
+
+/*    .start-learning-button {*/
+/*        font-size: 0.8rem;*/
+/*        padding: 8px 16px;*/
+/*    }*/
+/*}*/
