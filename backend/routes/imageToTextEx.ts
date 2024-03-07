@@ -46,24 +46,47 @@ router.post('/lesson/imageToTextEx', async (req, res) => {
 
 export default router;
 
-router.get('/lesson/imageToTextEx/:id', async (req, res) => {
-    const {id} = req.params;
+// commented out for testing purposes
 
+// router.get('/lesson/imageToTextEx/:id', async (req, res) => {
+//     const {id} = req.params;
+//
+//     try {
+//         const exercise = await prisma.imageToTextEx.findUnique({
+//             where: {
+//                 wordId: parseInt(id)
+//             }
+//         });
+//
+//         if (!exercise) {
+//             return res.status(404).json({error: "Exercise not found"});
+//         }
+//
+//         res.json(exercise);
+//     } catch (error) {
+//         console.error("Error fetching exercise:", error);
+//         res.status(500).json({error: "Internal server error"});
+//     }
+// });
+
+// Works. Pulling a random record from the table
+router.get('/lesson/imageToTextEx/random', async (req, res) => {
     try {
-        const exercise = await prisma.imageToTextEx.findUnique({
-            where: {
-                wordId: parseInt(id)
-            }
+        const count = await prisma.imageToTextEx.count();
+        if (count === 0) {
+            return res.status(404).json({ error: "No exercises found" });
+        }
+        const randomIndex = Math.floor(Math.random() * count);
+        const exercise = await prisma.imageToTextEx.findMany({
+            take: 1,                // Limit the result to one record
+            skip: randomIndex       // Skip the randomly generated index
         });
 
-        if (!exercise) {
-            return res.status(404).json({error: "Exercise not found"});
-        }
-
-        res.json(exercise);
+        // Return the randomly selected exercise
+        res.json(exercise[0]);
     } catch (error) {
         console.error("Error fetching exercise:", error);
-        res.status(500).json({error: "Internal server error"});
+        res.status(500).json({ error: "Internal server error" });
     }
 });
 

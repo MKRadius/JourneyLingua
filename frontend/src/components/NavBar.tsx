@@ -15,8 +15,8 @@ const NavBar: React.FC = () => {
     return (
         <div className="container">
             <div className="nav">
-                <div className="nav-logo">
-                    <h1 className="logo"><Link to="/">JourneyLingua</Link></h1>
+                <div className="nav-logo"><Link to="/">
+                    <h1 className="logo">JourneyLingua</h1></Link>
                 </div>
 
                 { isAuth && 

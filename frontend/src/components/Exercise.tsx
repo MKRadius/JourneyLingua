@@ -1,4 +1,5 @@
 import "../styles/Exercise.css";
+import {Link} from "react-router-dom";
 
 const Exercise: React.FC = () => {
     return (
@@ -9,7 +10,8 @@ const Exercise: React.FC = () => {
                 </div>
 
                 <div className="exercise-content">
-                    <button className="exercise-button">Image to text</button>
+                    <button className="exercise-button">
+                        <Link to="/image-to-text">Image to text</Link></button>
                     <button className="exercise-button">Make a sentence</button>
                     <button className="exercise-button">Randomize</button>
                 </div>
