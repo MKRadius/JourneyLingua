@@ -8,6 +8,8 @@ interface SignupRequestBody {
     username: string;
     password: string;
     email: string;
+    firstname: string;
+    lastname: string;
 }
 
 router.post('/signup', async (req: Request, res: Response) => {
@@ -17,7 +19,7 @@ router.post('/signup', async (req: Request, res: Response) => {
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {username, password, firstname, lastname, email} = req.body;
+    const {username, password, email, firstname, lastname} = req.body;
 
     try {
         // Check if user already exists
