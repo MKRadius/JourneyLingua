@@ -1,44 +1,50 @@
-import express, {Request, Response} from "express"; // Import Request and Response types
+import express, {Request, Response} from "express";
 import prisma from "../prisma/prisma";
 import {validationResult} from "express-validator";
 
 const router = express.Router();
 
-router.post('/login', async (req: Request, res: Response) => {
+// Interface for the User model returned by Prisma
+interface User {
+    username: string;
+    password: string;
+}
+
+// Interface for the request body
+interface LoginRequest {
+    username: string;
+    password: string;
+}
+
+router.post('/login', async (req, res) => {
     try {
         // Validate user input
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            return res.status(400).json({errors: errors.array()});
         }
 
-        const { username, password } = req.body;
+        // Destructure username and password from the request body
+        const {username, password}: LoginRequest = req.body;
 
-        // Check if user already exists
-        const existingUser = await prisma.user.findUnique({
-            where: {
-                username: username,
-            },
-        });
+        // parameterized query ensures that the username value is treated as a parameter and not as part of the SQL code,
+        // this is preventing SQL injection attacks
+        const existingUser: User | null = await prisma.$queryRaw`SELECT * FROM "User" WHERE username = ${username}`;
+
 
         if (!existingUser) {
-            return res.status(404).json({ error: 'User not found' });
-        }
-        else {
-            console.log(existingUser);
+            return res.status(404).json({error: 'User not found'});
         }
 
         const isValidPassword = existingUser.password.trim() === password.trim();
-        
         if (!isValidPassword) {
-            return res.status(401).json({ error: 'Invalid password' });
+            return res.status(401).json({error: 'Invalid password'});
         }
 
-        // Password is valid, proceed with signing in
-        res.status(200).json({ message: 'Login successful', username: existingUser.username, token: 'token'});
+        res.status(200).json({message: 'Login successful', username: existingUser.username, token: 'token'});
     } catch (error) {
         console.error('Error to login user:', error);
-        res.status(500).json({ error: 'Internal server error' });
+        res.status(500).json({error: 'Internal server error'});
     }
 });
 

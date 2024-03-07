@@ -8,6 +8,8 @@ interface SignupRequestBody {
     username: string;
     password: string;
     email: string;
+    firstname: string;
+    lastname: string;
 }
 
 router.post('/signup', async (req: Request, res: Response) => {
@@ -17,20 +19,22 @@ router.post('/signup', async (req: Request, res: Response) => {
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {username, password, firstname, lastname, email} = req.body;
+    const {username, password, email, firstname, lastname} = req.body;
 
     try {
-        // Check if user already exists
-        const existingUser = await prisma.user.findUnique({
+        // Check if user already exists.
+        // This approach prevents SQL injection by using parameterized queries to handle user input safely.
+        const existingUser = await prisma.user.findFirst({
             where: {
-                username: username,
-                email: email
+                OR: [
+                    { username: username },
+                    { email: email }
+                ]
             }
         });
         if (existingUser) {
             return res.status(409).json({error: 'User already exists'});
         }
-
 
         // Create the user
         const newUser = await prisma.user.create({

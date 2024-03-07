@@ -15,14 +15,14 @@ datasource db {
 }
 
 model User {
-  userId   Int     @id @default(autoincrement())
-  username String  @unique @db.VarChar(50)
-  password String  @db.Char(60)
-  email    String  @unique @db.VarChar(100)
+  userId    Int     @id @default(autoincrement())
+  username  String  @unique @db.VarChar(50)
+  password  String  @db.Char(60)
+  email     String  @unique @db.VarChar(100)
   firstname String  @db.VarChar(50)
-  lastname String  @db.VarChar(50)
-  streak   Int?
-  Learn    Learn[]
+  lastname  String  @db.VarChar(50)
+  streak    Int?
+  Learn     Learn[]
 }
 
 model Learn {
@@ -53,21 +53,22 @@ model Exercise {
 }
 
 model MakeASentenceEx {
-  sentenceId         Int      @id @default(autoincrement())
-  sentence           String   @db.VarChar(150)
-  exercise           Exercise @relation(fields: [exerciseId, languageId], references: [exerciseId, languageId])
-  exerciseId Int
-  languageId Int
+  sentenceId  Int      @id @default(autoincrement())
+  sentenceEng String   @db.VarChar(150)
+  sentenceFin String   @db.VarChar(150)
+  exercise    Exercise @relation(fields: [exerciseId, languageId], references: [exerciseId, languageId])
+  exerciseId  Int
+  languageId  Int
 }
 
 model ImageToTextEx {
-  wordId             Int      @id @default(autoincrement())
-  wordEng            String   @db.VarChar(50)
-  wordFin            String   @db.VarChar(50)
-  category           String?  @db.VarChar(50)
-  subCategory        String?  @db.VarChar(50)
-  imageLink          String   @db.VarChar(100)
-  exercise           Exercise @relation(fields: [exerciseId, languageId], references: [exerciseId, languageId])
-  exerciseId Int
-  languageId Int
+  wordId      Int      @id @default(autoincrement())
+  wordEng     String   @db.VarChar(50)
+  wordFin     String   @db.VarChar(50)
+  category    String?  @db.VarChar(50)
+  subCategory String?  @db.VarChar(50)
+  imageLink   String   @db.VarChar(100)
+  exercise    Exercise @relation(fields: [exerciseId, languageId], references: [exerciseId, languageId])
+  exerciseId  Int
+  languageId  Int
 }

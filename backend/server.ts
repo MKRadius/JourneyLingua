@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import signup from './routes/signup';
 import login from './routes/login';
 import prisma from "./prisma/prisma";
+import language from "./routes/language";
+import exercise from "./routes/exercise";
 
 dotenv.config();
 
@@ -25,6 +27,8 @@ app.use('/', imageToTextExRoute);
 app.use('/', makeASentenceExRoute);
 app.use('/', signup);
 app.use('/', login);
+app.use('/', language);
+app.use('/', exercise);
 
 
 
