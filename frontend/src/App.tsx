@@ -9,13 +9,15 @@ import { useAuthContext } from './hooks/useContext'
 
 import './styles/App.css'
 import Profile from "./components/Profile.tsx";
+import NavBar from "./components/NavBar.tsx";
 
 const App: React.FC = () => {
   const { user, token, isAuth } = useAuthContext();
 
   return (
     <>
-      <BrowserRouter basename='/'>   
+      <BrowserRouter basename='/'>
+        <NavBar />
         <Routes>
           <Route path="/" element={ !(user && token && isAuth) ? <Home /> : <Learn /> } />
           <Route path="/login" element={ <Login /> } />

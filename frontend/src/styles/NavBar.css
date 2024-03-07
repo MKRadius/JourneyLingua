@@ -14,6 +14,10 @@
 .nav-logo {
     margin-left: 20px;
 }
+.nav-logo a {
+    text-decoration: none;
+    color: #000;
+}
 
 .nav-button {
     display: flex;
@@ -132,33 +136,3 @@
         padding: 8px 16px;
     }
 }
-
-/*@media only screen and (max-width: 425px) {*/
-/*    .nav-logo {*/
-/*        margin-left: 5px;*/
-/*    }*/
-
-/*    .nav-button {*/
-/*        margin-right: 5px;*/
-/*    }*/
-
-/*    .nav-button button {*/
-/*        font-size: 12px;*/
-/*        padding: 6px 12px;*/
-/*    }*/
-
-/*    .home-container h1 {*/
-/*        font-size: 1.5rem;*/
-/*        margin-bottom: 10px;*/
-/*    }*/
-
-/*    .home-container p {*/
-/*        font-size: 0.9rem;*/
-/*        margin-bottom: 20px;*/
-/*    }*/
-
-/*    .start-learning-button {*/
-/*        font-size: 0.8rem;*/
-/*        padding: 8px 16px;*/
-/*    }*/
-/*}*/

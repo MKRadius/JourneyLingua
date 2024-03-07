@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useContext';
 import "../styles/NavBar.css";
 
@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
         <div className="container">
             <div className="nav">
                 <div className="nav-logo">
-                    <h1 className="logo">JourneyLingua</h1>
+                    <h1 className="logo"><Link to="/">JourneyLingua</Link></h1>
                 </div>
 
                 { isAuth && 
