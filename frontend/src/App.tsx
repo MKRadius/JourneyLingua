@@ -18,7 +18,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={ !(user && token && isAuth) ? <Home /> : <Learn /> } />
           <Route path="/login" element={ <Login /> } />
-          <Route path="/register" element={ <Register /> } />
+          <Route path="/signup" element={ <Register /> } />
         </Routes>
       </BrowserRouter>
     </>

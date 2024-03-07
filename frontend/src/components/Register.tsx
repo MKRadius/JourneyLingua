@@ -58,7 +58,7 @@ const Register: React.FC = () => {
             setLastname("");
             console.log("New user added:", json);
             alert("User Added Successfully");
-            navigate("/login");
+            navigate("/");
         }
     };
 

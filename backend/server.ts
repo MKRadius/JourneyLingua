@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import signup from './routes/signup';
-import signin from './routes/signin';
+import login from './routes/login';
 import prisma from "./prisma/prisma";
 
 dotenv.config();
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 app.use('/', imageToTextExRoute);
 app.use('/', makeASentenceExRoute);
 app.use('/', signup);
-app.use('/', signin);
+app.use('/', login);
 
 
 

@@ -4,7 +4,7 @@ import {validationResult} from "express-validator";
 
 const router = express.Router();
 
-router.post('/signin', async (req: Request, res: Response) => {
+router.post('/login', async (req: Request, res: Response) => {
     try {
         // Validate user input
         const errors = validationResult(req);
@@ -35,9 +35,9 @@ router.post('/signin', async (req: Request, res: Response) => {
         }
 
         // Password is valid, proceed with signing in
-        res.status(200).json({ message: 'Signin successful', username: existingUser.username, token: 'token'});
+        res.status(200).json({ message: 'Login successful', username: existingUser.username, token: 'token'});
     } catch (error) {
-        console.error('Error signin in user:', error);
+        console.error('Error to login user:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });

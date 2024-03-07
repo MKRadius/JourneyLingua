@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
                 { !isAuth && 
                     <div className="nav-button">
                         <button className="login-button" onClick={() => navigate("/login")}>Log in</button>
-                        <button className="register-button" onClick={() => navigate("/register")}>Register</button>
+                        <button className="register-button" onClick={() => navigate("/signup")}>Register</button>
                     </div>
                 }
                 

@@ -49,7 +49,7 @@ const Login: React.FC = () => {
             dispatch({ type: "LOGIN", payload: { user: json.username, token: json.token } });
             setUsername("");
             setPassword("");
-            navigate("/");
+            navigate("/login");
         }
     }
 
@@ -80,7 +80,7 @@ const Login: React.FC = () => {
 
                     <div className="register-link">
                         <p className="redirect-instruction">Don't have an account?</p>
-                        <p className="redirect-link" onClick={() => navigate("/register")}>Register</p>
+                        <p className="redirect-link" onClick={() => navigate("/signup")}>Register</p>
                     </div>
 
                     <div className="forgot-password">
