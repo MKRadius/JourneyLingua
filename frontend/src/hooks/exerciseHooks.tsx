@@ -10,3 +10,14 @@ export const fetchExercise = async () => {
 
     return response;
 };
+
+export const fetchSentenceExercise = async () => {
+    const response = await fetch(`${API}/lesson/makeASentenceEx/random`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    return response;
+};

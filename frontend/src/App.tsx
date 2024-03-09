@@ -9,6 +9,7 @@ import { useAuthContext } from './hooks/useContext'
 import './styles/App.css'
 import NavBar from "./components/NavBar.tsx";
 import ImageToTextEx from "./components/ImageToTextEx.tsx";
+import MakeASentenceEx from "./components/MakeASentenceEx.tsx";
 
 const App: React.FC = () => {
   const { user, token, isAuth } = useAuthContext();
@@ -23,7 +24,7 @@ const App: React.FC = () => {
           <Route path="/signup" element={ <Register /> } />
           <Route path="/profile" element={ <Learn /> } />
           <Route path="/image-to-text" element={ <ImageToTextEx />} />
-
+          <Route path="/make-a-sentence" element={ <MakeASentenceEx />} />
 
         </Routes>
       </BrowserRouter>

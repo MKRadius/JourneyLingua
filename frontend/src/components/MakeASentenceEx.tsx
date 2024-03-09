@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import "../styles/ImageToTextEx.css";
 
-import { ExerciseImgTxt } from "../interfaces/Exercise";
-import { fetchExercise } from "../hooks/exerciseHooks";
+import { ExerciseSentence } from "../interfaces/Exercise";
+import { fetchSentenceExercise } from "../hooks/exerciseHooks";
 import { useNavigate } from "react-router-dom";
 
-const ImageToTextEx: React.FC = () => {
+const MakeASentenceEx: React.FC = () => {
     const [index, setIndex] = useState<number>(0); 
-    const [exercise, setExercise] = useState<ExerciseImgTxt[] | null>(null);
+    const [exercise, setExercise] = useState<ExerciseSentence[] | null>(null);
     const [countCorrectAnswer, setCountCorrectAnswer] = useState<number>(0);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error |null>(null);
@@ -16,14 +16,14 @@ const ImageToTextEx: React.FC = () => {
 
     const getExerciseSet = async () => {
         try {
-            const response = await fetchExercise();
+            const response = await fetchSentenceExercise();
             if (!response.ok) {
                 console.log(error?.message);
                 throw new Error("Exercise not found");
             }
 
-            const data: ExerciseImgTxt[] = await response.json();
-            // console.log(data);
+            const data: ExerciseSentence[] = await response.json();
+            console.log(data);
             setExercise(data);
             setLoading(false);
         } catch (error: any) {
@@ -44,10 +44,10 @@ const ImageToTextEx: React.FC = () => {
         return <div>Error: {error.message}</div>;
     }
 
-    const handleUserAnswer = (word: string) => {
-        if (exercise?.[index].wordFin === word) {
-            setCountCorrectAnswer(countCorrectAnswer + 1);
-        }
+    const handleUserAnswer = (sentence: string) => {
+        // if (exercise?.[index].wordFin === word) {
+        //     setCountCorrectAnswer(countCorrectAnswer + 1);
+        // }
         setIndex(index + 1);
     };
 
@@ -55,17 +55,8 @@ const ImageToTextEx: React.FC = () => {
         if (index < exercise?.length!) {
             return (
                 <>
-                    <img src={exercise?.[index].imageLink} alt="Exercise Image" className="exercise-image"/>
-                    <div className="options-container">
-                        {exercise?.map((ex, i) => {
-                            return (
-                                <button key={i} className="option-button" onClick={() => {
-                                    handleUserAnswer(ex.wordFin);
-                                }}>
-                                    {ex.wordFin}
-                                </button>
-                            )
-                        })}
+                    <div className="sentence-container">
+                        <div className="sentence">{exercise?.[index].sentenceFin}</div>
                     </div>
                 </>
             )
@@ -85,7 +76,7 @@ const ImageToTextEx: React.FC = () => {
     return (
         <div>
             <header className="exercise-header">
-                <h2>Text-Image Exercise</h2>
+                <h2>Make A Sentence Exercise</h2>
             </header>
             <main className="center">
                 <div className="exercise-container">
@@ -96,4 +87,4 @@ const ImageToTextEx: React.FC = () => {
     );
 };
 
-export default ImageToTextEx;
+export default MakeASentenceEx;

@@ -105,5 +105,15 @@ router.get('/lesson/imageToTextEx/random', async (req, res) => {
     }
 });
 
+router.get('/lesson/imageToTextEx', async (req, res) => {
+    try {
+        const exercises = await prisma.imageToTextEx.findMany();
+        res.json(exercises);
+    } catch (error) {
+        console.error("Error fetching exercises:", error);
+        res.status(500).json({error: "Internal server error"});
+    }
+});
+
 
 module.exports = router;

@@ -13,7 +13,7 @@ const Exercise: React.FC = () => {
 
                 <div className="exercise-content">
                     <button className="exercise-button" onClick={() => navigate("/image-to-text")}>Image to text</button>
-                    <button disabled className="exercise-button">Make a sentence</button>
+                    <button className="exercise-button" onClick={() => navigate("/make-a-sentence")}>Make a sentence</button>
                     <button disabled className="exercise-button">Randomize</button>
                 </div>
             </div>
