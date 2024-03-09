@@ -2,6 +2,7 @@ import express from "express";
 
 const router = express.Router();
 import prisma from "../prisma/prisma";
+import { Exercise } from "@prisma/client";
 
 interface ImageToTextExRequest {
     wordEng: string;
@@ -76,14 +77,28 @@ router.get('/lesson/imageToTextEx/random', async (req, res) => {
         if (count === 0) {
             return res.status(404).json({ error: "No exercises found" });
         }
-        const randomIndex = Math.floor(Math.random() * count);
-        const exercise = await prisma.imageToTextEx.findMany({
-            take: 1,                // Limit the result to one record
-            skip: randomIndex       // Skip the randomly generated index
-        });
+        const randomIds : number[] = [];
+        while(randomIds.length < 3) {
+            const randomId = Math.floor(Math.random() * count) + 1;
+            if(!randomIds.includes(randomId)) {
+                randomIds.push(randomId);
+            }
+        }
+
+        const exercises : Exercise[] = [];
+        for (let id of randomIds) {
+            const exercise = (await prisma.imageToTextEx.findMany({
+                where: {
+                    exerciseId: id
+                }
+            }))[0];
+            if (exercise !== undefined) {
+                exercises.push(exercise);
+            }
+        }
 
         // Return the randomly selected exercise
-        res.json(exercise[0]);
+        res.json(exercises);
     } catch (error) {
         console.error("Error fetching exercise:", error);
         res.status(500).json({ error: "Internal server error" });

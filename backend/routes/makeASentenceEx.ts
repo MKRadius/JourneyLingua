@@ -10,34 +10,34 @@ interface MakeASentenceExRequest {
     languageId: number;
 }
 
-router.post('/lesson/makeASentenceEx/', async (req, res) => {
-    try {
-        const {sentenceEng, sentenceFin, exerciseId, languageId} = req.body;
+// router.post('/lesson/makeASentenceEx/', async (req, res) => {
+//     try {
+//         const {sentenceEng, sentenceFin, exerciseId, languageId} = req.body;
 
-        // Validate the request body against the interface
-        const requestBody: MakeASentenceExRequest = {
-            sentenceEng,
-            sentenceFin,
-            exerciseId,
-            languageId
-        };
+//         // Validate the request body against the interface
+//         const requestBody: MakeASentenceExRequest = {
+//             sentenceEng,
+//             sentenceFin,
+//             exerciseId,
+//             languageId
+//         };
 
-        if (!sentenceEng || !sentenceFin || !exerciseId || !languageId) {
-            return res.status(400).json({error: "Missing required fields"});
-        }
+//         if (!sentenceEng || !sentenceFin || !exerciseId || !languageId) {
+//             return res.status(400).json({error: "Missing required fields"});
+//         }
 
-        // Create a new MakeASentenceEx entry in the database
-        const createdMakeASentenceEx = await prisma.makeASentenceEx.create({
-            data: requestBody // Pass the validated request body
-        });
-// Send a success response
-        return res.status(200).json({message: "MakeASentenceEx created successfully", data: requestBody});
-    } catch (error) {
-        // Handle any errors
-        console.error('Error creating MakeASentenceEx:', error);
-        return res.status(500).json({error: 'Internal server error'});
-    }
-});
+//         // Create a new MakeASentenceEx entry in the database
+//         const createdMakeASentenceEx = await prisma.makeASentenceEx.create({
+//             data: requestBody // Pass the validated request body
+//         });
+// // Send a success response
+//         return res.status(200).json({message: "MakeASentenceEx created successfully", data: requestBody});
+//     } catch (error) {
+//         // Handle any errors
+//         console.error('Error creating MakeASentenceEx:', error);
+//         return res.status(500).json({error: 'Internal server error'});
+//     }
+// });
 
 router.get('/lesson/makeASentenceEx/:id', async (req, res) => {
     const id = parseInt(req.params.id);

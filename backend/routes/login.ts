@@ -1,4 +1,4 @@
-import express, {Request, Response} from "express";
+import express, {Request, Response, query} from "express";
 import prisma from "../prisma/prisma";
 import {validationResult} from "express-validator";
 
@@ -29,8 +29,8 @@ router.post('/login', async (req, res) => {
 
         // parameterized query ensures that the username value is treated as a parameter and not as part of the SQL code,
         // this is preventing SQL injection attacks
-        const existingUser: User | null = await prisma.$queryRaw`SELECT * FROM "User" WHERE username = ${username}`;
-
+        const queryResult: User[] = await prisma.$queryRaw`SELECT * FROM "User" WHERE username = ${username}`;
+        const existingUser: User | null = queryResult[0] || null;
 
         if (!existingUser) {
             return res.status(404).json({error: 'User not found'});
