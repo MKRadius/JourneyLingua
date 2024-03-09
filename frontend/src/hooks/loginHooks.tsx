@@ -1,8 +1,6 @@
 import { UserLogin } from "../interfaces/User";
 
-
- const API="http://localhost:3000";
-
+const API="http://localhost:3000";
 
 export const login = async (user: UserLogin) => {
     const response = await fetch(`${API}/login`, {
