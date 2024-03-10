@@ -1,5 +1,5 @@
 # Use an appropriate base image for your backend (e.g., Node.js, Python, Java, etc.)
-FROM node:14
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
