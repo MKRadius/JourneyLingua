@@ -1,64 +1,71 @@
 .exercise-header {
-    margin-top: 75px; /* Height of the NavBar */
+  margin-top: 75px; /* Height of the NavBar */
 }
 
 .exercise-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: auto;
 }
 
 .exercise-image {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 20px;
 }
 
 .options-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .option-button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .option-button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
+.option-button.option-button.correct {
+  background-color: #28a745;
+}
+
+.option-button.option-button.wrong {
+  background-color: #dc3545;
+}
 
 @media only screen and (max-width: 768px) {
-    .exercise-container {
-        max-width: 80%;
-    }
+  .exercise-container {
+    max-width: 80%;
+  }
 
-    .option-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
+  .option-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
 
 @media only screen and (max-width: 425px) {
-    .exercise-image {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 10px;
-    }
+  .exercise-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
 
-    .option-button {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
+  .option-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }

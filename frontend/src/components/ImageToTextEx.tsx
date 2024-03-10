@@ -9,6 +9,8 @@ const ImageToTextEx: React.FC = () => {
     const [index, setIndex] = useState<number>(0); 
     const [exercise, setExercise] = useState<ExerciseImgTxt[] | null>(null);
     const [countCorrectAnswer, setCountCorrectAnswer] = useState<number>(0);
+    const [selectedAnswer, setSelectedAnswer] = useState<{ word: string; isCorrect: boolean } | null>(null);
+    const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error |null>(null);
 
@@ -36,6 +38,10 @@ const ImageToTextEx: React.FC = () => {
         getExerciseSet();
     }, []);
 
+    useEffect(() => {
+        setFeedbackMessage(null); // Reset feedback message when index changes
+    }, [index]);
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -45,10 +51,23 @@ const ImageToTextEx: React.FC = () => {
     }
 
     const handleUserAnswer = (word: string) => {
-        if (exercise?.[index].wordFin === word) {
-            setCountCorrectAnswer(countCorrectAnswer + 1);
+        const isCorrect = exercise?.[index].wordFin === word;
+        setSelectedAnswer({ word, isCorrect });
+        
+        if (isCorrect) {
+            console.log("Correct!");
+            setFeedbackMessage("Correct!");
+            setCountCorrectAnswer(prevCount => prevCount + 1);
+        } else {
+            console.log("Incorrect!");
+            setFeedbackMessage("Incorrect!");
         }
-        setIndex(index + 1);
+
+        // Wait a bit before going to the next question
+        setTimeout(() => {
+            setIndex(prevIndex => prevIndex + 1);
+            setSelectedAnswer(null);
+        }, 800); // Delay in milliseconds
     };
 
     const displayExercise = () => {
@@ -58,8 +77,12 @@ const ImageToTextEx: React.FC = () => {
                     <img src={exercise?.[index].imageLink} alt="Exercise Image" className="exercise-image"/>
                     <div className="options-container">
                         {exercise?.map((ex, i) => {
+                            const isAnswerSelected = selectedAnswer?.word === ex.wordFin;
+                            const isCorrect = selectedAnswer?.isCorrect;
+                            const buttonClass = isAnswerSelected ? (isCorrect ? "correct" : "wrong") : "";
+                            
                             return (
-                                <button key={i} className="option-button" onClick={() => {
+                                <button key={i} className={`option-button ${buttonClass}`} onClick={() => {
                                     handleUserAnswer(ex.wordFin);
                                 }}>
                                     {ex.wordFin}
@@ -67,6 +90,7 @@ const ImageToTextEx: React.FC = () => {
                             )
                         })}
                     </div>
+                    {feedbackMessage && <div className={selectedAnswer?.isCorrect ? "correct" : "wrong"}>{feedbackMessage}</div>}
                 </>
             )
         } 
