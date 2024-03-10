@@ -10,11 +10,22 @@ pipeline {
 
         stage("Build") {
             steps {
-                dir("frontend") {
-                    sh "npm install"
-                }
-                dir("backend") {
-                    sh "npm install"
+                script {
+                    if (isUnix()) {
+                        dir('frontend') {
+                            sh 'npm install'
+                        }
+                        dir('backend') {
+                            sh 'npm install'
+                        }
+                    } else {
+                        dir('frontend') {
+                            bat 'npm install'
+                        }
+                        dir('backend') {
+                            bat 'npm install'
+                        }
+                    }
                 }
             }
         }
