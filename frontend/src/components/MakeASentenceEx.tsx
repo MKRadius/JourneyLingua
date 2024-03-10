@@ -8,7 +8,10 @@ import { useNavigate } from "react-router-dom";
 const MakeASentenceEx: React.FC = () => {
     const [index, setIndex] = useState<number>(0); 
     const [exercise, setExercise] = useState<ExerciseSentence[] | null>(null);
+    const [userAnswer, setUserAnswer] = useState<string>("");
     const [countCorrectAnswer, setCountCorrectAnswer] = useState<number>(0);
+    const [selectedAnswer, setSelectedAnswer] = useState<{ sentence: string; isCorrect: boolean } | null>(null);
+    const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error |null>(null);
 
@@ -36,6 +39,10 @@ const MakeASentenceEx: React.FC = () => {
         getExerciseSet();
     }, []);
 
+    useEffect(() => {
+        setFeedbackMessage(null); // Reset feedback message when index changes
+    }, [index]);
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -45,10 +52,24 @@ const MakeASentenceEx: React.FC = () => {
     }
 
     const handleUserAnswer = (sentence: string) => {
-        // if (exercise?.[index].wordFin === word) {
-        //     setCountCorrectAnswer(countCorrectAnswer + 1);
-        // }
-        setIndex(index + 1);
+        const isCorrect = exercise?.[index].sentenceFin.toLowerCase() === sentence.toLowerCase();
+        setSelectedAnswer({ sentence, isCorrect });
+        
+        if (isCorrect) {
+            console.log("Correct!");
+            setFeedbackMessage("Correct!");
+            setCountCorrectAnswer(prevCount => prevCount + 1);
+        } else {
+            console.log("Incorrect!");
+            setFeedbackMessage("Incorrect!");
+        }
+
+        // Wait a bit before going to the next question
+        setTimeout(() => {
+            setIndex(prevIndex => prevIndex + 1);
+            setSelectedAnswer(null);
+            setUserAnswer("");
+        }, 800); // Delay in milliseconds
     };
 
     const displayExercise = () => {
@@ -57,7 +78,14 @@ const MakeASentenceEx: React.FC = () => {
                 <>
                     <div className="sentence-container">
                         <div className="sentence">{exercise?.[index].sentenceFin}</div>
+                        <div hidden className="correct-sentence">Correct sentence</div>
                     </div>
+
+                    <div className="answer-container">
+                        <input onChange={e => setUserAnswer(e.target.value)} type="text" placeholder="Type your answer here" value={userAnswer}/>
+                        <button onClick={() => handleUserAnswer(userAnswer)}>Submit</button>
+                    </div>
+                    {feedbackMessage && <div className={selectedAnswer?.isCorrect ? "correct" : "wrong"}>{feedbackMessage}</div>}
                 </>
             )
         } 
