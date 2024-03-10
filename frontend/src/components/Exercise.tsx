@@ -1,7 +1,9 @@
 import "../styles/Exercise.css";
-import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Exercise: React.FC = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="exercise-container">
             <div className="exercise">
@@ -10,10 +12,9 @@ const Exercise: React.FC = () => {
                 </div>
 
                 <div className="exercise-content">
-                    <button className="exercise-button">
-                        <Link to="/image-to-text">Image to text</Link></button>
-                    <button className="exercise-button">Make a sentence</button>
-                    <button className="exercise-button">Randomize</button>
+                    <button className="exercise-button" onClick={() => navigate("/image-to-text")}>Image to text</button>
+                    <button className="exercise-button" onClick={() => navigate("/make-a-sentence")}>Make a sentence</button>
+                    <button disabled className="exercise-button">Randomize</button>
                 </div>
             </div>
         </div>

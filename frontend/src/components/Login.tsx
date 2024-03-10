@@ -35,6 +35,8 @@ const Login: React.FC = () => {
             password: password
         }
 
+        console.log(loginData);
+
         const response = await login(loginData);
         const json = await response.json();
         

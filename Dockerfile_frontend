@@ -1,0 +1,20 @@
+# Use an appropriate base image for your frontend (e.g., Node.js, React, Angular, etc.)
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /frontend/app
+
+# Copy package.json and package-lock.json
+COPY /frontend/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the frontend code
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 5173
+
+# Command to run the application
+CMD ["npm", "start"]
