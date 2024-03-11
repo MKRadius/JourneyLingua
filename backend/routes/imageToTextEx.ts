@@ -3,6 +3,7 @@ import express from "express";
 const router = express.Router();
 import prisma from "../prisma/prisma";
 import { Exercise } from "@prisma/client";
+//import requireAuth from "../middleware/requireAuth";
 
 interface ImageToTextExRequest {
     wordEng: string;
@@ -14,6 +15,7 @@ interface ImageToTextExRequest {
     languageId: number;
 }
 
+// router.use(requireAuth);
 router.post('/lesson/imageToTextEx', async (req, res) => {
     try {
         const {wordEng, wordFin, category, subCategory, imageLink, exerciseId, languageId} = req.body;

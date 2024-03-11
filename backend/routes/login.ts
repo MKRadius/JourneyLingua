@@ -43,19 +43,12 @@ router.post('/login', async function(req, res) {
         // this is preventing SQL injection attacks
         const queryResult: User[] = await prisma.$queryRaw`SELECT * FROM "User" WHERE username = ${username}`;
         const existingUser: User | null = queryResult[0] || null;
-        console.log(existingUser);
 
         if (!existingUser) {
             return res.status(404).json({error: 'User not found'});
         }
 
-       // const isValidPassword = existingUser.password.trim() === password.trim();
-        const isValidPassword = password;
-        if (!isValidPassword) {
-            return res.status(401).json({error: 'Invalid password'});
-        }
-
-        const passwordMatch = await bcrypt.compare(isValidPassword, existingUser.password);
+        const passwordMatch = await bcrypt.compare(password, existingUser.password);
         if(!passwordMatch) {
             return res.status(401).json({error: 'Incorrect password'});
         }

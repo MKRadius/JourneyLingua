@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import React, {createContext, useReducer, useEffect, ReactNode} from "react";
 import { AuthAction, AuthState } from "../interfaces/Auth";
 
 export const AuthContext = createContext<{
@@ -37,10 +37,12 @@ export const AuthReducer = (state: AuthState , action: AuthAction) => {
 
         default:
             return state;
+
+
     }
 }
 
-export const AuthProvider: React.FC = ({ children }: React.PropsWithChildren<{}>) => {
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [state, dispatch] = useReducer(AuthReducer, {
         user: "",
         token: "",
@@ -50,7 +52,7 @@ export const AuthProvider: React.FC = ({ children }: React.PropsWithChildren<{}>
     useEffect(() => {
         const user = localStorage.getItem("user");
         const token = localStorage.getItem("token");
-        const isAuth = new Boolean(localStorage.getItem("isAuth"));
+        const isAuth = Boolean(localStorage.getItem("isAuth"));
 
         if (user && token && isAuth) {
             dispatch({
@@ -61,7 +63,9 @@ export const AuthProvider: React.FC = ({ children }: React.PropsWithChildren<{}>
                 }
             });
         }
-    }, []);
+    }, [])
+
+
 
     return (
         <AuthContext.Provider value={{ ...state, dispatch }}>
