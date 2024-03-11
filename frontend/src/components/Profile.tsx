@@ -13,7 +13,7 @@ const Profile: React.FC = () => {
                     <p>First Name: </p>
                     <p>Last Name: </p>
                     <p>Email: </p>
-                    <p>Streak: </p>
+                    {/*<p>Streak: </p>*/}
                 </div>
             </div>
         </div>

@@ -1,6 +1,10 @@
 import express, {Request, Response} from "express"; // Import Request and Response types
 import prisma from "../prisma/prisma";
-import {validationResult} from "express-validator";
+import {validationResult, body} from "express-validator";
+import bcrypt from "bcrypt";
+import dotenv from "dotenv";
+const jwt = require("jsonwebtoken");
+dotenv.config();
 
 const router = express.Router();
 
@@ -12,14 +16,31 @@ interface SignupRequestBody {
     lastname: string;
 }
 
-router.post('/signup', async (req: Request, res: Response) => {
+const createToken = (userId: number) => {
+    return jwt.sign({userId}, process.env.JWTSECRET, {expiresIn: '3d'});
+}
+
+// const signupValidationRules = [
+//     body('username').notEmpty().withMessage('Username is required'),
+//     body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters long'),
+//     body('email').isEmail().withMessage('Invalid email address'),
+//     body('firstname').notEmpty().withMessage('First name is required'),
+//     body('lastname').notEmpty().withMessage('Last name is required')
+// ];
+
+router.post('/signup', async function(req: Request, res: Response) {
+    // check for empty fields
+    const { username, password, email, firstname, lastname }: SignupRequestBody = req.body;
+    if (!username || !password || !email || !firstname || !lastname) {
+        return res.status(400).json({ error: 'All fields must be filled' });
+    }
+
+
     // Validate user input
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
-
-    const {username, password, email, firstname, lastname} = req.body;
 
     try {
         // Check if user already exists.
@@ -36,18 +57,24 @@ router.post('/signup', async (req: Request, res: Response) => {
             return res.status(409).json({error: 'User already exists'});
         }
 
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(password, salt);
+
         // Create the user
         const newUser = await prisma.user.create({
             data: {
                 username: username,
-                password: password,
+                password: hash,
                 firstname: firstname,
                 lastname: lastname,
                 email: email
             }
         });
 
-        res.status(201).json({message: 'User created successfully', user: newUser});
+        // create a token
+        const token = createToken(newUser.userId);
+
+        res.status(201).json({message: 'User created successfully', user: newUser, token});
     } catch (error) {
         console.error('Error creating user:', error);
         res.status(500).json({error: 'Internal server error'});

@@ -14,7 +14,6 @@ const Login: React.FC = () => {
     const [password, setPassword] = useState("");
 
     const { dispatch } = useAuthContext();
-    
     const navigate = useNavigate();
 
     const loginCriteria: StateField[] = [
@@ -37,22 +36,28 @@ const Login: React.FC = () => {
 
         console.log(loginData);
 
-        const response = await login(loginData);
-        const json = await response.json();
-        
-        if (!response.ok) {
-            console.log("Error in logging in");
-            console.log(response);
-            console.log(json);
-            alert("Incorrect username or password");
+        try {
+            const response = await login(loginData);
+            const json = await response.json();
+
+            if (!response.ok) {
+                console.log("Error in logging in");
+                console.log(response);
+                console.log(json);
+                alert("Incorrect username or password");
+            }
+            if (response.ok) {
+                console.log(json);
+                dispatch({ type: "LOGIN", payload: { user: json.username, token: json.token } });
+                setUsername("");
+                setPassword("");
+                navigate("/");
+            }
+        }catch (error) {
+            console.error("Failed to login", error);
+            alert("Something went wrong. Check your credentials and try again");
         }
-        if (response.ok) {
-            console.log(json);
-            dispatch({ type: "LOGIN", payload: { user: json.username, token: json.token } });
-            setUsername("");
-            setPassword("");
-            navigate("/");
-        }
+
     }
 
     return (
@@ -87,7 +92,7 @@ const Login: React.FC = () => {
 
                     <div className="forgot-password">
                         {/* <p className="redirect-link" onClick={() => navigate("/ForgotPassword")}>Forgot Password?</p> */}
-                        <p onClick={() => {alert("Then try to remeber it")}}>Forgot your password?</p>
+                        <p onClick={() => {alert("Then try to remember it xd")}}>Forgot your password?</p>
                     </div>
                 </form>
 
