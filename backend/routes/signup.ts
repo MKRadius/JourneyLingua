@@ -1,6 +1,7 @@
 import express, {Request, Response} from "express"; // Import Request and Response types
 import prisma from "../prisma/prisma";
 import {validationResult} from "express-validator";
+const bcrypt = require('bcrypt');
 
 const router = express.Router();
 
@@ -12,14 +13,14 @@ interface SignupRequestBody {
     lastname: string;
 }
 
-router.post('/signup', async (req: Request, res: Response) => {
+router.post('/signup', async (req, res) => {
     // Validate user input
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({errors: errors.array()});
     }
 
-    const {username, password, email, firstname, lastname} = req.body;
+    const {username, password, email, firstname, lastname} = req.body as SignupRequestBody;
 
     try {
         // Check if user already exists.
@@ -36,11 +37,14 @@ router.post('/signup', async (req: Request, res: Response) => {
             return res.status(409).json({error: 'User already exists'});
         }
 
+        const salt = await bcrypt.genSalt(10);
+        const hash = await bcrypt.hash(password, salt);
+
         // Create the user
         const newUser = await prisma.user.create({
             data: {
                 username: username,
-                password: password,
+                password: hash,
                 firstname: firstname,
                 lastname: lastname,
                 email: email
