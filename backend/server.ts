@@ -6,6 +6,7 @@ import login from './routes/login';
 import prisma from "./prisma/prisma";
 import language from "./routes/language";
 import exercise from "./routes/exercise";
+import deleteUserRoute from "./routes/deleteuser";
 
 dotenv.config();
 
@@ -29,9 +30,13 @@ app.use('/', signup);
 app.use('/', login);
 app.use('/', language);
 app.use('/', exercise);
+app.use('/', deleteUserRoute);
 
 
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => {
+      console.log("Server running on port: " + port);
+    });
+  }
 
-app.listen(port, () => {
-    console.log("Server running on port: " + port);
-})
+export default app;

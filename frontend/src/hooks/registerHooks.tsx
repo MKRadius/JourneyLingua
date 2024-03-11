@@ -1,5 +1,7 @@
 import { UserRegister } from "../interfaces/User";
 
+
+
 const API="http://localhost:3000";
 
 export const register = async (user: UserRegister) => {
