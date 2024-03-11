@@ -1,30 +1,31 @@
 import { useEffect, useState } from "react";
 import "../styles/ImageToTextEx.css";
 
-import { ExerciseImgTxt } from "../interfaces/Exercise";
-import { fetchExercise } from "../hooks/exerciseHooks";
+import { ExerciseSentence } from "../interfaces/Exercise";
+import { fetchSentenceExercise } from "../hooks/exerciseHooks";
 import { useNavigate } from "react-router-dom";
 
-const ImageToTextEx: React.FC = () => {
+const Randomize: React.FC = () => {
     const [index, setIndex] = useState<number>(0); 
-    const [exercise, setExercise] = useState<ExerciseImgTxt[] | null>(null);
+    const [exercise, setExercise] = useState<ExerciseSentence[] | null>(null);
+    const [userAnswer, setUserAnswer] = useState<string>("");
     const [countCorrectAnswer, setCountCorrectAnswer] = useState<number>(0);
-    const [selectedAnswer, setSelectedAnswer] = useState<{ word: string; isCorrect: boolean } | null>(null);
+    const [selectedAnswer, setSelectedAnswer] = useState<{ sentence: string; isCorrect: boolean } | null>(null);
     const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<Error |null>(null);
+    const [error, setError] = useState<Error | null>(null);
 
     const navigate = useNavigate();
 
     const getExerciseSet = async () => {
         try {
-            const response = await fetchExercise();
+            const response = await fetchSentenceExercise();
             if (!response.ok) {
                 console.log(error?.message);
                 throw new Error("Exercise not found");
             }
 
-            const data: ExerciseImgTxt[] = await response.json();
+            const data: ExerciseSentence[] = await response.json();
             console.log(data);
             setExercise(data);
             setLoading(false);
@@ -50,9 +51,9 @@ const ImageToTextEx: React.FC = () => {
         return <div>Error: {error.message}</div>;
     }
 
-    const handleUserAnswer = (word: string) => {
-        const isCorrect = exercise?.[index].wordFin === word;
-        setSelectedAnswer({ word, isCorrect });
+    const handleUserAnswer = (sentence: string) => {
+        const isCorrect = exercise?.[index].sentenceFin.toLowerCase() === sentence.toLowerCase();
+        setSelectedAnswer({ sentence, isCorrect });
         
         if (isCorrect) {
             console.log("Correct!");
@@ -67,6 +68,7 @@ const ImageToTextEx: React.FC = () => {
         setTimeout(() => {
             setIndex(prevIndex => prevIndex + 1);
             setSelectedAnswer(null);
+            setUserAnswer("");
         }, 800); // Delay in milliseconds
     };
 
@@ -74,21 +76,14 @@ const ImageToTextEx: React.FC = () => {
         if (index < exercise?.length!) {
             return (
                 <>
-                    <img src={exercise?.[index].imageLink} alt="Exercise Image" className="exercise-image"/>
-                    <div className="options-container">
-                        {exercise?.map((ex, i) => {
-                            const isAnswerSelected = selectedAnswer?.word === ex.wordFin;
-                            const isCorrect = selectedAnswer?.isCorrect;
-                            const buttonClass = isAnswerSelected ? (isCorrect ? "correct" : "wrong") : "";
-                            
-                            return (
-                                <button key={i} className={`option-button ${buttonClass}`} onClick={() => {
-                                    handleUserAnswer(ex.wordFin);
-                                }}>
-                                    {ex.wordFin}
-                                </button>
-                            )
-                        })}
+                    <div className="sentence-container">
+                        <div className="sentence">{exercise?.[index].sentenceFin}</div>
+                        <div hidden className="correct-sentence">Correct sentence</div>
+                    </div>
+
+                    <div className="answer-container">
+                        <input onChange={e => setUserAnswer(e.target.value)} type="text" placeholder="Type your answer here" value={userAnswer}/>
+                        <button onClick={() => handleUserAnswer(userAnswer)}>Submit</button>
                     </div>
                     {feedbackMessage && <div className={selectedAnswer?.isCorrect ? "correct" : "wrong"}>{feedbackMessage}</div>}
                 </>
@@ -96,11 +91,11 @@ const ImageToTextEx: React.FC = () => {
         } 
         else {
             return (
-                <div className="message-completed">
-                    <h1>Completed</h1>
-                    <h3 className="message">You did {countCorrectAnswer}/3 correct!</h3>
-                    <button className="navigate-button" onClick={() => navigate("/")}>Go back</button>
-                </div>
+                <>
+                    <div>Exercise Completed</div>
+                    <div>You did {countCorrectAnswer}/3 correct!</div>
+                    <button onClick={() => navigate("/")}>Go back</button>
+                </>
             )
         }
     };
@@ -109,7 +104,7 @@ const ImageToTextEx: React.FC = () => {
     return (
         <div>
             <header className="exercise-header">
-                <h2>Text-Image Exercise</h2>
+                <h2>Make A Sentence Exercise</h2>
             </header>
             <main className="center">
                 <div className="exercise-container">
@@ -120,4 +115,4 @@ const ImageToTextEx: React.FC = () => {
     );
 };
 
-export default ImageToTextEx;
+export default Randomize;

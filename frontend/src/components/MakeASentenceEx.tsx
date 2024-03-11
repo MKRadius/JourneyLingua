@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/ImageToTextEx.css";
+import "../styles/MakeASentenceEx.css";
 
 import { ExerciseSentence } from "../interfaces/Exercise";
 import { fetchSentenceExercise } from "../hooks/exerciseHooks";
@@ -78,7 +79,6 @@ const MakeASentenceEx: React.FC = () => {
                 <>
                     <div className="sentence-container">
                         <div className="sentence">{exercise?.[index].sentenceFin}</div>
-                        <div hidden className="correct-sentence">Correct sentence</div>
                     </div>
 
                     <div className="answer-container">
@@ -91,11 +91,11 @@ const MakeASentenceEx: React.FC = () => {
         } 
         else {
             return (
-                <>
-                    <div>Exercise Completed</div>
-                    <div>You did {countCorrectAnswer}/3 correct!</div>
-                    <button onClick={() => navigate("/")}>Go back</button>
-                </>
+                <div className="message-completed">
+                    <h1>Completed</h1>
+                    <h3 className="message">You did {countCorrectAnswer}/3 correct!</h3>
+                    <button className="navigate-button" onClick={() => navigate("/")}>Go back</button>
+                </div>
             )
         }
     };

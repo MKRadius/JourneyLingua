@@ -1,0 +1,33 @@
+.sentence {
+    margin: 130px 0 20px 0;
+    font-size: 24px;
+}
+
+.answer-container {
+    margin: 20px 0 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.answer-container input {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+.answer-container button {
+    cursor: pointer;
+    background-color: #89e219;
+    border: none;
+    border-radius: 4rem;
+    font-size: 16px;
+    min-width: 100px;
+    min-height: 40px;
+    padding: 10px;
+}
