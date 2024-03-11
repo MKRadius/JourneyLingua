@@ -79,6 +79,10 @@
   padding: 10px;
 }
 
+.navigate-button:hover {
+  background-color: #98f02d;
+}
+
 @media only screen and (max-width: 768px) {
   .exercise-container {
     max-width: 80%;
