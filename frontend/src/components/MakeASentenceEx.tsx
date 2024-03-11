@@ -91,7 +91,7 @@ const MakeASentenceEx: React.FC = () => {
                         <div className="message-completed">
                             <h1>Completed</h1>
                             <h3>You did {countCorrectAnswer} correct!</h3>
-                            <button onClick={() => navigate("/")}>Go back</button>
+                            <button className="navigate-button" onClick={() => navigate("/")}>Go back</button>
                         </div>
                     )}
                 </div>

@@ -1,25 +1,25 @@
-.exercise-container {
+.exercise-list-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
     min-height: 50vh;
 }
 
-.exercise {
+.exercise-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     background-color: #f5f5f5;
     width: 600px;
-    min-height: 100%;
+    min-height: 400px;
     border-radius: 10px;
     border-width: 5px;
     padding: 20px;
 }
 
-.exercise-content {
+
+.list-button {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -29,7 +29,7 @@
     padding: 20px;
 }
 
-.exercise-content  button {
+.list-button button {
     margin-left: 20px;
     margin-right: 20px;
 
@@ -42,14 +42,15 @@
     font-size: 16px;
 
     min-width: 100px;
+    min-height: 40px;
     padding: 10px;
 }
 
-.exercise-content  button:hover {
+.list-button button:hover {
     background-color: #98f02d;
 }
 
-.exercise-content  button a {
+.list-button button a {
     text-decoration: none;
     text-align: center;
 }

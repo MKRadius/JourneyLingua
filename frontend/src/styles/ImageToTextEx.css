@@ -1,13 +1,24 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .exercise-header {
-  margin-top: 75px; /* Height of the NavBar */
+  margin-top: 75px;
 }
 
 .exercise-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px;
-  margin: auto;
+  justify-content: flex-start;
+  background-color: #f5f5f5;
+  width: 600px;
+  min-height: 400px;
+  border-radius: 10px;
+  border-width: 5px;
+  padding: 20px;
 }
 
 .exercise-image {
@@ -15,6 +26,10 @@
   height: 200px;
   object-fit: contain;
   margin-bottom: 20px;
+  border-style: solid;
+  border-color: gray;
+  border-width: 3px;
+  border-radius: 4px;
 }
 
 .options-container {
@@ -26,6 +41,8 @@
 .option-button {
   margin: 5px;
   padding: 10px 20px;
+  min-width: 125px;
+  min-height: 30px;
   font-size: 16px;
   background-color: #007bff;
   color: #fff;
@@ -44,6 +61,26 @@
 
 .option-button.option-button.wrong {
   background-color: #dc3545;
+}
+
+.message-completed {
+  margin-top: 15%;
+}
+
+.navigate-button {
+  margin: 20px 0 20px 0;
+  cursor: pointer;
+  background-color: #89e219;
+  border: none;
+  border-radius: 4rem;
+  font-size: 16px;
+  min-width: 100px;
+  min-height: 40px;
+  padding: 10px;
+}
+
+.navigate-button:hover {
+  background-color: #98f02d;
 }
 
 @media only screen and (max-width: 768px) {

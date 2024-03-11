@@ -25,7 +25,7 @@ const ImageToTextEx: React.FC = () => {
             }
 
             const data: ExerciseImgTxt[] = await response.json();
-            // console.log(data);
+            console.log(data);
             setExercise(data);
             setLoading(false);
         } catch (error: any) {
@@ -96,11 +96,11 @@ const ImageToTextEx: React.FC = () => {
         } 
         else {
             return (
-                <>
-                    <div>Exercise Completed</div>
-                    <div>You did {countCorrectAnswer}/3 correct!</div>
-                    <button onClick={() => navigate("/")}>Go back</button>
-                </>
+                <div className="message-completed">
+                    <h1>Completed</h1>
+                    <h3 className="message">You did {countCorrectAnswer}/3 correct!</h3>
+                    <button className="navigate-button" onClick={() => navigate("/")}>Go back</button>
+                </div>
             )
         }
     };
