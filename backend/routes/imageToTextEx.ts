@@ -15,7 +15,7 @@ interface ImageToTextExRequest {
     languageId: number;
 }
 
-// router.use(requireAuth);
+ //router.use(requireAuth);
 router.post('/lesson/imageToTextEx', async (req, res) => {
     try {
         const {wordEng, wordFin, category, subCategory, imageLink, exerciseId, languageId} = req.body;
