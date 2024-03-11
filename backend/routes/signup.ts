@@ -81,7 +81,6 @@ router.post('/signup', async function(req: Request, res: Response) {
     }
 });
 
-
 // get all users TEMP
 router.get('/users', async (req: Request, res: Response) => {
     try {
@@ -92,6 +91,32 @@ router.get('/users', async (req: Request, res: Response) => {
         res.status(200).json({ users });
     } catch (error) {
         console.error('Error retrieving users:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+// New route to fetch user profile information by username
+router.get('/profile/:username', async (req: Request, res: Response) => {
+    try {
+        const { username } = req.params;
+        const user = await prisma.user.findUnique({
+            where: { username },
+            select: { // Select specific fields to return, excluding sensitive ones like password
+                username: true,
+                firstname: true,
+                lastname: true,
+                email: true,
+                streak: true,
+                // Include any other fields you want to return
+            }
+        });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json(user);
+    } catch (error) {
+        console.error('Error retrieving user profile:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });
