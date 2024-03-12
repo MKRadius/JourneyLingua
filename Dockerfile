@@ -11,8 +11,13 @@ FROM node:20-alpine AS backend
 WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm install
-COPY backend . 
-COPY backend/.env .
+COPY backend .
+ARG DATABASE_URL
+ARG PORT
+ARG JWTSECRET
+RUN echo "DATABASE_URL=$DATABASE_URL" >> .env
+RUN echo "PORT=$PORT" >> .env
+RUN echo "JWTSECRET=$JWTSECRET" >> .env
 
 # Stage 3: Final image
 FROM node:20-alpine
