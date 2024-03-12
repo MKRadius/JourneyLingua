@@ -18,5 +18,9 @@ FROM node:20-alpine
 WORKDIR /app
 COPY --from=frontend /app/frontend/build ./frontend/build
 COPY --from=backend /app/backend ./
+COPY .gitignore ./
+COPY Jenkinsfile ./
+COPY start-script-unix.sh ./
+COPY start-script-windows.bat ./
 EXPOSE 5173 3000
 CMD ["npm", "run", "dev"]
