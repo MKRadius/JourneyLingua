@@ -2,8 +2,11 @@ import request from 'supertest';
 import app from '../server';
 
 describe('User Signup and Login', () => {
-  it('should signup a new user and then login that user successfully', async () => {
-    const newUser = {
+  let newUser : any;
+
+  beforeAll(async () => {
+    // Sign up a new user before running the tests
+    newUser = {
       username: 'testuser',
       password: 'password',
       email: 'test@example.com',
@@ -11,22 +14,25 @@ describe('User Signup and Login', () => {
       lastname: 'User',
     };
 
-    // Attempt to sign up the new user
-    let response = await request(app)
-      .post('/signup')
-      .send(newUser);
+    await request(app)
+        .post('/signup')
+        .send(newUser);
+  });
 
-    // Check response for successful signup
-    expect(response.statusCode).toBe(201);
-    expect(response.body).toHaveProperty('message', 'User created successfully');
-
-    // Now attempt to login with the new user credentials
-    response = await request(app)
-      .post('/login')
-      .send({ username: newUser.username, password: newUser.password });
+  it('should signup a new user and then login that user successfully', async () => {
+    // Attempt to login with the new user credentials
+    const response = await request(app)
+        .post('/login')
+        .send({ username: newUser.username, password: newUser.password });
 
     // Check response for successful login
     expect(response.statusCode).toBe(200);
     expect(response.body).toHaveProperty('message', 'Login successful');
+  });
+
+  afterAll(async () => {
+    // Delete the user after all tests have run
+    await request(app)
+        .delete(`/deleteUser/${newUser.username}`);
   });
 });

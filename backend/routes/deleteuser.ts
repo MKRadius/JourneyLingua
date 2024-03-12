@@ -3,14 +3,14 @@ import prisma from "../prisma/prisma";
 
 const router = express.Router();
 
-router.delete('/deleteUser/:userId', async (req: Request, res: Response) => {
-    const { userId } = req.params;
+router.delete('/deleteUser/:username', async (req: Request, res: Response) => {
+    const { username } = req.params;
 
     try {
-        const id = Number(userId);
+        const userToDelete = String(username);
 
         const user = await prisma.user.findUnique({
-            where: { userId: id }
+            where: { username: userToDelete }
         });
 
         if (!user) {
@@ -19,7 +19,7 @@ router.delete('/deleteUser/:userId', async (req: Request, res: Response) => {
 
         // If user exists, delete the user.
         await prisma.user.delete({
-            where: { userId: id }
+            where: { username: userToDelete }
         });
 
         res.json({ message: "User deleted successfully" });

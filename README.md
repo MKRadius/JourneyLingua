@@ -18,7 +18,7 @@ JourneyLingua is a language learning app designed to provide users with engaging
     - [ER Diagram](#er-diagram)
 10. [Configuration](#configuration)
 11. [File Structure](#file-structure)
-12. [Contributing](#contributing)
+12. [Backend API Documentation](#backend-api-documentation)
 13. [License](#license)
 
 
@@ -116,68 +116,88 @@ Need to explain how to run code coverage and view the results.
 ---
 ## Running the Application with Docker
 
-### Backend Application
+This guide outlines the steps to run the application using Docker. The application consists of both frontend and backend components.
 
-1. **Build Docker Image**: Navigate to the directory containing the `Dockerfile_backend`. Run the following command to build the Docker image for the backend application:
+### Prerequisites
+- Docker installed on your machine. You can download and install Docker from [Docker's official website](https://www.docker.com/get-started).
 
-    ```bash
-    docker build -t backend-app -f Dockerfile_backend .
-    ```
+### Instructions
 
-2. **Run Docker Container**: Once the Docker image is built, run a Docker container using the following command:
+#### 1. Clone the Repository
+```bash
+git clone <repository_url>
+cd <repository_directory>
+```
 
-    ```bash
-    docker run -p 3000:3000 backend-app
-    ```
+#### 2. Build the Docker Image
+```bash
+docker build -t <image_name> .
+```
+Replace `<image_name>` with your desired image name.
 
-   Access the backend application at [http://localhost:3000](http://localhost:3000).
+#### 3. Run the Docker Container
+```bash
+docker run -d -p 5173:5173 -p 3000:3000 \
+    -e DATABASE_URL=<your_database_url> \
+    -e PORT=<your_port_number> \
+    -e JWTSECRET=<your_jwt_secret> \
+    <image_name>
+```
+Replace `<your_database_url>`, `<your_port_number>`, and `<your_jwt_secret>` with your specific configurations.
 
-### Frontend Application
+#### 4. Accessing the Application
+Once the Docker container is running, you can access the application in your web browser:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:5173
 
-1. **Build Docker Image**: Navigate to the directory containing the `Dockerfile_frontend`. Run the following command to build the Docker image for the frontend application:
+### Additional Notes
+- Ensure that the specified ports (3000 and 5173) are not already in use by other applications.
+- Make sure to provide correct values for environment variables (DATABASE_URL, PORT, JWTSECRET) during container execution.
+- If you need to stop the container, you can use the `docker stop <container_id>` command, where `<container_id>` is the ID of the running container.
 
-    ```bash
-    docker build -t frontend-app -f Dockerfile_frontend .
-    ```
 
-2. **Run Docker Container**: Once the Docker image is built, run a Docker container using the following command:
-
-    ```bash
-    docker run -p 5173:5173 frontend-app
-    ```
-
-   Access the frontend application at [http://localhost:5173](http://localhost:5173).
 ---
 ## Jenkins
 
 ### Setting up CI/CD with Jenkins
 
-1. Install Jenkins [here](https://www.jenkins.io/doc/book/installing/).
+1. Install Jenkins by following the instructions [here](https://www.jenkins.io/doc/book/installing/).
+
 
 2. Create a New Pipeline Project:
-   - Log in to Jenkins and create a new pipeline project.
-   - Choose "Pipeline" as the project type.
-   - Configure the pipeline to use the Jenkinsfile located in the root directory of your project's repository.
+    - Log in to Jenkins.
+    - Click on "New Item" to create a new project.
+    - Enter a name for your project and select "Pipeline" as the project type.
+    - Click "OK" to proceed.
+    - In the configuration page:
+        - Under "Pipeline", select "Pipeline script from SCM".
+        - Choose Git as the SCM.
+        - Enter the repository URL: `https://github.com/MKRadius/JourneyLingua.git`.
+        - Set the branch to `main`.
+        - Save the configuration.
 
-3. Customize Pipeline Script: Customize the Jenkinsfile according to your project structure and requirements. Below is a basic example of a Jenkinsfile for Node.js applications:
 
-```groovy
-pipeline {
-    agent any
-    stages {
-        stage("Checkout") {
-            steps {
-                git branch: 'main', url: 'https://github.com/MKRadius/JourneyLingua.git'
-            }
-        }
-        stage("Build") {
-            steps {
-                sh 'npm install'
-            }
-        }
-    }
-}
-```
+3. Configure DockerHub Credentials:
+    - Go to "Manage Jenkins" > "Manage Credentials".
+    - Click on "Global credentials (unrestricted)" > "Add Credentials".
+    - Choose "Username with password" as the kind.
+    - Enter your DockerHub username and password.
+    - Set an ID for your credentials (e.g., `DockerHub`) and click "OK" to save.
+
+
+4. Update Jenkinsfile:
+    - Replace `DOCKERHUB_CREDENTIALS_ID` with the ID you set for DockerHub credentials.
+    - Update `DOCKERHUB_REPO` to your DockerHub repository.
+    - Modify `DOCKER_IMAGE_TAG` as needed.
+
+
+5. Run the Pipeline:
+    - Trigger the pipeline manually or set up webhooks to trigger it automatically on each push.
+    - Jenkins will checkout the code, build the frontend and backend, build a Docker image, and push it to DockerHub.
+
+
+<p align="left"><img alt="UseCaseDiagram" src="./readmeResources/jenkins_pipeline.png" /></p>
+
 ---
 ## Architectural Design
 
@@ -392,14 +412,12 @@ If authentication fails, the API responds with a `401 Unauthorized` status code.
    - `username` (string): Username of the user.
 - **Response:** Returns the user profile information.
 
-## Important Notes
+### Important Notes
 
 - Ensure that the `Authorization` header is included with the JWT token for protected endpoints.
 - All dates are in the ISO 8601 format.
 - Errors will be returned with appropriate status codes and error messages.
-
-
-
+---
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
