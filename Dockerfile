@@ -12,6 +12,7 @@ WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm install
 COPY backend . 
+COPY backend/.env .
 
 # Stage 3: Final image
 FROM node:20-alpine
