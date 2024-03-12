@@ -11,13 +11,7 @@ FROM node:20-alpine AS backend
 WORKDIR /app/backend
 COPY backend/package*.json ./
 RUN npm install
-COPY backend .
-ARG DATABASE_URL
-ARG PORT
-ARG JWTSECRET
-RUN echo "DATABASE_URL=$DATABASE_URL" >> .env
-RUN echo "PORT=$PORT" >> .env
-RUN echo "JWTSECRET=$JWTSECRET" >> .env
+COPY backend . 
 
 # Stage 3: Final image
 FROM node:20-alpine
@@ -29,4 +23,13 @@ COPY Jenkinsfile ./
 COPY start-script-unix.sh ./
 COPY start-script-windows.bat ./
 EXPOSE 5173 3000
+
+# Dynamically generate .env file
+ARG DATABASE_URL
+ARG PORT
+ARG JWTSECRET
+RUN echo "DATABASE_URL=$DATABASE_URL" >> ./backend/.env && \
+    echo "PORT=$PORT" >> ./backend/.env && \
+    echo "JWTSECRET=$JWTSECRET" >> ./backend/.env
+
 CMD ["npm", "run", "dev"]
