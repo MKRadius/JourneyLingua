@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Learn from './components/Learn'
 import Login from './components/Login'
@@ -23,11 +23,8 @@ const App: React.FC = () => {
           <Route path="/login" element={ <Login /> } />
           <Route path="/signup" element={ <Register /> } />
           <Route path="/profile" element={ <Learn /> } />
-          {/*<Route path="/image-to-text" element={ <ImageToTextEx />} />*/}
-          {/*<Route path="/make-a-sentence" element={ <MakeASentenceEx />} />*/}
-          <Route path="/image-to-text" element={ (user && token && isAuth) ? <ImageToTextEx /> : <Navigate to="/"/> } />
-          <Route path="/make-a-sentence" element={ (user && token && isAuth) ? <MakeASentenceEx /> : <Navigate to="/"/> } />
-
+          <Route path="/image-to-text" element={ (user && token && isAuth) ? <ImageToTextEx /> : <Login /> } />
+          <Route path="/make-a-sentence" element={ (user && token && isAuth) ? <MakeASentenceEx /> : <Login /> } />
         </Routes>
       </BrowserRouter>
     </>
