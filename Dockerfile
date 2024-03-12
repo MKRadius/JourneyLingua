@@ -17,8 +17,8 @@ COPY backend/.env .
 # Stage 3: Final image
 FROM node:20-alpine
 WORKDIR /app
-COPY --from=frontend /app/frontend/build ./frontend/build
-COPY --from=backend /app/backend ./
+COPY --from=frontend /app/frontend ./frontend
+COPY --from=backend /app/backend ./backend
 COPY .gitignore ./
 COPY Jenkinsfile ./
 COPY start-script-unix.sh ./
