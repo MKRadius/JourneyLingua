@@ -1,6 +1,9 @@
 import "../styles/Profile.css";
+import { useLocation } from "react-router-dom";
 
 const Profile: React.FC = () => {
+    const location = useLocation();
+    const jsonData = location.state?.jsonData;
     return (
         <div className="profile-container">
             <div className="profile">
@@ -9,11 +12,23 @@ const Profile: React.FC = () => {
                 </div>
 
                 <div className="profile-details">
-                    <h3>Username</h3>
-                    <p>First Name: </p>
-                    <p>Last Name: </p>
-                    <p>Email: </p>
-                    {/*<p>Streak: </p>*/}
+                    {jsonData ? (
+                        <>
+                            <h3>{jsonData.username}</h3>
+                            <p>First Name: {jsonData.firstname}</p>
+                            <p>Last Name: {jsonData.lastname}</p>
+                            <p>Email: {jsonData.email}</p>
+                        </>
+                    ) : (
+                        <>
+                            <h3>Username</h3>
+                            <p>First Name: </p>
+                            <p>Last Name: </p>
+                            <p>Email: </p>
+                            {/*<p>Streak: </p>*/}
+                        </>
+                    )}
+
                 </div>
             </div>
         </div>

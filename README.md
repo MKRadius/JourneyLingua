@@ -349,7 +349,7 @@ If authentication fails, the API responds with a `401 Unauthorized` status code.
 
 - **Endpoint:** `/language`
 - **Method:** POST
-- **Auth Required:** No
+- **Auth Required:** Yes
 - **Description:** Creates a new language.
 - **Request Body:**
    - `languageName` (string): Name of the language.
@@ -406,7 +406,7 @@ If authentication fails, the API responds with a `401 Unauthorized` status code.
 
 - **Endpoint:** `/profile/:username`
 - **Method:** GET
-- **Auth Required:** No
+- **Auth Required:** Yes
 - **Description:** Retrieves the profile information of a user by username.
 - **URL Parameters:**
    - `username` (string): Username of the user.

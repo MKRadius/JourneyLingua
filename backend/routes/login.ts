@@ -1,7 +1,7 @@
 import express, {Request, Response, query} from "express";
 import prisma from "../prisma/prisma";
 import {validationResult} from "express-validator";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 const jwt = require("jsonwebtoken");
 dotenv.config();
@@ -12,6 +12,9 @@ const router = express.Router();
 interface User {
     userId: number;
     username: string;
+    firstname: string;
+    lastname: string;
+    email: string;
     password: string;
 }
 
@@ -55,7 +58,7 @@ router.post('/login', async function(req, res) {
 
         const token = createToken(existingUser.userId);
 
-        res.status(200).json({message: 'Login successful', username: existingUser.username, token: token});
+        res.status(200).json({message: 'Login successful', username: existingUser.username, firstname: existingUser.firstname, lastname: existingUser.lastname, email:existingUser.email, token: token});
     } catch (error) {
         console.error('Error to login user:', error);
         res.status(500).json({error: 'Internal server error'});
