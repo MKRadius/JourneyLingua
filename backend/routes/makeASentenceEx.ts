@@ -75,8 +75,8 @@ router.post('/lesson/makeASentenceEx/', async (req, res) => {
         const createdMakeASentenceEx = await prisma.makeASentenceEx.create({
             data: requestBody // Pass the validated request body
         });
-// Send a success response
-        return res.status(200).json({message: "MakeASentenceEx created successfully", data: requestBody});
+        // Send a success response
+        return res.status(200).json({message: "MakeASentenceEx created successfully", createdMakeASentenceEx});
     } catch (error) {
         // Handle any errors
         console.error('Error creating MakeASentenceEx:', error);
