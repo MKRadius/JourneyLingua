@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "start": "node server.ts",
-    "dev": "nodemon server.ts"
+    "dev": "nodemon server.ts",
+    "coverage": "jest --coverage --watchAll"
   },
   "keywords": [],
   "author": "",
