@@ -20,8 +20,6 @@ COPY --from=frontend /app/frontend ./frontend
 COPY --from=backend /app/backend ./backend
 COPY .gitignore ./
 COPY Jenkinsfile ./
-COPY start-script-unix.sh ./
-COPY start-script-windows.bat ./
 EXPOSE 5173 3000
 
 # Dynamically generate .env file
