@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage("Checkout") {
             steps {
-                git branch: 'Khai', credentialsId: 'GitHub', url: 'https://github.com/MKRadius/JourneyLingua.git'
+                git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/MKRadius/JourneyLingua.git'
             }
         }
 
