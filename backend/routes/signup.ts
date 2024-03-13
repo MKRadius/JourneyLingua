@@ -1,7 +1,7 @@
 import express, {Request, Response} from "express"; // Import Request and Response types
 import prisma from "../prisma/prisma";
 import {validationResult, body} from "express-validator";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
 const jwt = require("jsonwebtoken");
 dotenv.config();
