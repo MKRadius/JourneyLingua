@@ -1,6 +1,7 @@
 import request from 'supertest';
 import app from '../server';
 
+
 describe('Combined Test Including Language Creation', () => {
   it('should create all entities sequentially: 1. New language 2. New Exercise 3. New MakeASentenceEx 4. New ImageToTextEx', async () => {
     // Step 1: Create a new language (Spanish)
@@ -64,6 +65,10 @@ describe('Combined Test Including Language Creation', () => {
   });
 });
 
+
+
+
+// ----------
 
 // import request from 'supertest';
 // import app from '../server';

@@ -1,38 +1,64 @@
 import request from 'supertest';
 import app from '../server';
 
-describe('User Signup and Login', () => {
-  let newUser : any;
+interface RegisterUser {
+    username: string;
+    password: string;
+    email: string;
+    firstname: string;
+    lastname: string;
+}
 
-  beforeAll(async () => {
-    // Sign up a new user before running the tests
-    newUser = {
-      username: 'testuser',
-      password: 'password',
-      email: 'test@example.com',
-      firstname: 'Test',
-      lastname: 'User',
-    };
+interface LoginUser {
+    username: string;
+    password: string;
+}
 
-    await request(app)
-        .post('/signup')
-        .send(newUser);
-  });
+let newUser: RegisterUser;
 
-  it('should signup a new user and then login that user successfully', async () => {
-    // Attempt to login with the new user credentials
-    const response = await request(app)
-        .post('/login')
-        .send({ username: newUser.username, password: newUser.password });
+describe('User Signup', () => {
+        newUser = {
+            username: 'testuser',
+            password: 'password',
+            email: 'test@example.com',
+            firstname: 'Test',
+            lastname: 'User',
+        };
 
-    // Check response for successful login
-    expect(response.statusCode).toBe(200);
-    expect(response.body).toHaveProperty('message', 'Login successful');
-  });
+    it('Should signup a new user successfully', async () => {
+        // Signup the new user
+        const response = await request(app)
+            .post('/signup')
+            .send(newUser);
 
-  afterAll(async () => {
+        // Check response for successful signup
+        expect(response.statusCode).toBe(201);
+        expect(response.body).toHaveProperty('message', 'User created successfully');
+    });
+});
+
+
+describe('User Login', () => {
+    let loginUser: LoginUser = {
+            username: 'testuser',
+            password: 'password',
+        };
+
+    it('Should login the user successfully', async () => {
+        const response = await request(app)
+            .post('/login')
+            .send({ username: loginUser.username, password: loginUser.password });
+
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toHaveProperty('message', 'Login successful');
+    });
+});
+
+
+afterAll(async () => {
     // Delete the user after all tests have run
-    await request(app)
-        .delete(`/deleteUser/${newUser.username}`);
-  });
+    if (newUser) {
+        await request(app)
+            .delete(`/deleteUser/${newUser.username}`);
+    }
 });

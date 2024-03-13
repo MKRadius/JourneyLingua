@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="2" failures="0" errors="0" time="7.139">
+  <testsuite name="Combined Test Including Language Creation" errors="0" failures="0" skipped="0" timestamp="2024-03-13T16:54:43" time="5.848" tests="1">
+    <testcase classname="Combined Test Including Language Creation should create all entities sequentially: 1. New language 2. New Exercise 3. New MakeASentenceEx 4. New ImageToTextEx" name="Combined Test Including Language Creation should create all entities sequentially: 1. New language 2. New Exercise 3. New MakeASentenceEx 4. New ImageToTextEx" time="0.832">
+    </testcase>
+  </testsuite>
+  <testsuite name="User Signup and Login" errors="0" failures="0" skipped="0" timestamp="2024-03-13T16:54:43" time="6.017" tests="1">
+    <testcase classname="User Signup and Login should signup a new user and then login that user successfully" name="User Signup and Login should signup a new user and then login that user successfully" time="0.123">
+    </testcase>
+  </testsuite>
+</testsuites>
