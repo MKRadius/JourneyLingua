@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
         <div className="profile-container">
             <div className="profile">
                 <div className="profile-image">
-                    <img src="https://via.placeholder.com/150" alt="Profile" />
+                    <img width="150" src="../../public/UserProfileImage.webp" alt="Profile" />
                 </div>
 
                 <div className="profile-details">
