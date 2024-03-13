@@ -48,10 +48,10 @@ const Login: React.FC = () => {
             }
             if (response.ok) {
                 console.log(json);
-                dispatch({ type: "LOGIN", payload: { user: json.username, token: json.token } });
+                dispatch({ type: "LOGIN", payload: { user: json.user['username'], token: json.token } });
                 setUsername("");
                 setPassword("");
-                navigate("/", { state: { jsonData: json }});
+                navigate("/", { state: { jsonData: json.user }});
             }
         }catch (error) {
             console.error("Failed to login", error);

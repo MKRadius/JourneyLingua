@@ -69,8 +69,9 @@ const Register: React.FC = () => {
                 setFirstname("");
                 setLastname("");
                 console.log("New user added:", json);
+                console.log(user);
                 alert("User Added Successfully");
-                navigate("/");
+                navigate("/", { state: { jsonData: user }});
             }
 
         } catch (error) {

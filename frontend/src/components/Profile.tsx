@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 const Profile: React.FC = () => {
     const location = useLocation();
     const jsonData = location.state?.jsonData;
+    console.log("json data ", location.state?.jsonData);
     return (
         <div className="profile-container">
             <div className="profile">

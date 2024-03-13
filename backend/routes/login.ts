@@ -58,7 +58,8 @@ router.post('/login', async function(req, res) {
 
         const token = createToken(existingUser.userId);
 
-        res.status(200).json({message: 'Login successful', username: existingUser.username, firstname: existingUser.firstname, lastname: existingUser.lastname, email:existingUser.email, token: token});
+        //res.status(200).json({message: 'Login successful', user: existingUser, token: token});
+         res.status(200).json({message: 'Login successful', user: {username: existingUser.username, firstname: existingUser.firstname, lastname: existingUser.lastname, email:existingUser.email}, token: token});
     } catch (error) {
         console.error('Error to login user:', error);
         res.status(500).json({error: 'Internal server error'});
