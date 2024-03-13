@@ -1,7 +1,31 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../public/BackgroundPicture.webp');
+  background-size: cover;
+  background-position: center;
+  -webkit-filter: blur(4px) brightness(100%); /* Adds blur and increases brightness */
+  filter: blur(4px) brightness(100%); /* Adds blur and increases brightness */
+  z-index: -1;
+}
+
 #root {
+  position: relative;
+  z-index: 1; /* Ensures content in #root is above the pseudo-element */
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
