@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" errors="0" time="2.398">
-  <testsuite name="User Signup and Login" errors="0" failures="0" skipped="0" timestamp="2024-03-13T17:01:21" time="2.26" tests="1">
-    <testcase classname="User Signup and Login should signup a new user and then login that user successfully" name="User Signup and Login should signup a new user and then login that user successfully" time="0.128">
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="4.554">
+  <testsuite name="User Signup" errors="0" failures="0" skipped="0" timestamp="2024-03-13T20:00:50" time="3.914" tests="2">
+    <testcase classname="User Signup Should signup a new user successfully" name="User Signup Should signup a new user successfully" time="0.347">
+    </testcase>
+    <testcase classname="User Login Should login the user successfully" name="User Login Should login the user successfully" time="0.114">
+    </testcase>
+  </testsuite>
+  <testsuite name="Combined Test Including Language Creation" errors="0" failures="0" skipped="0" timestamp="2024-03-13T20:00:50" time="3.995" tests="4">
+    <testcase classname="Combined Test Including Language Creation Adding new language to the Language table should create a new language in the Language table" name="Combined Test Including Language Creation Adding new language to the Language table should create a new language in the Language table" time="0.007">
+    </testcase>
+    <testcase classname="Combined Test Including Language Creation Create Exercise should create a new exercise" name="Combined Test Including Language Creation Create Exercise should create a new exercise" time="0.034">
+    </testcase>
+    <testcase classname="Combined Test Including Language Creation MakeASentenceEx Creation should create a new MakeASentenceEx" name="Combined Test Including Language Creation MakeASentenceEx Creation should create a new MakeASentenceEx" time="0.032">
+    </testcase>
+    <testcase classname="Combined Test Including Language Creation ImageToTextEx Creation should create a new ImageToTextEx" name="Combined Test Including Language Creation ImageToTextEx Creation should create a new ImageToTextEx" time="0.036">
     </testcase>
   </testsuite>
 </testsuites>
