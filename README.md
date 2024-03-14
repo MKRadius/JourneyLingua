@@ -116,7 +116,7 @@ Jest will test all the essential routes in the backend
 ---
 ## Code Coverage
 
-<p align="left"><img alt="unit tests report" src="./readmeResources/codeCoverage.webp" /></p>
+<p align="left"><img alt="unit tests report" src="readmeResources/istanbulCoverageReport.webp" /></p>
 
 To run the code coverage using Jest
 
@@ -125,7 +125,8 @@ cd .\backend\__tests__\
 
 npx jest --coverage
 ```
-Jest will execute all your tests and generate a coverage report at the end
+Jest will execute all your tests and generate a coverage report at the end. <br>
+Istanbul.js is built into Jest, so you will see a coverage report in the terminal, and html version in `.\backend\coverage\Icov-report\index.html`
 
 
 ---
