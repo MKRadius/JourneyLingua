@@ -61,6 +61,7 @@ const Register: React.FC = () => {
 
             if (response.ok) {
                 localStorage.setItem('user', JSON.stringify(json));
+                localStorage.setItem('userData', JSON.stringify(json));
                 dispatch({ type: "LOGIN", payload: { user: json.user['username'], token: json.token } });
                 setUsername("");
                 setEmail("");
@@ -71,7 +72,7 @@ const Register: React.FC = () => {
                 console.log("New user added:", json);
                 console.log(user);
                 alert("User Added Successfully");
-                navigate("/", { state: { jsonData: user }});
+                navigate("/");
             }
 
         } catch (error) {

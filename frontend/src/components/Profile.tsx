@@ -1,10 +1,16 @@
 import "../styles/Profile.css";
-import { useLocation } from "react-router-dom";
+import {useEffect, useState} from "react";
 
 const Profile: React.FC = () => {
-    const location = useLocation();
-    const jsonData = location.state?.jsonData;
-    console.log("json data ", location.state?.jsonData);
+    const [jsonData, setJsonData] = useState<any>(null);
+
+    useEffect(() => {
+        // Retrieve user data from localStorage
+        const userData = localStorage.getItem("userData");
+        if (userData) {
+            setJsonData(JSON.parse(userData));
+        }
+    }, []);
     return (
         <div className="profile-container">
             <div className="profile">

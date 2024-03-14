@@ -51,7 +51,8 @@ const Login: React.FC = () => {
                 dispatch({ type: "LOGIN", payload: { user: json.user['username'], token: json.token } });
                 setUsername("");
                 setPassword("");
-                navigate("/", { state: { jsonData: json.user }});
+                localStorage.setItem("userData", JSON.stringify(json.user));
+                navigate("/");
             }
         }catch (error) {
             console.error("Failed to login", error);
