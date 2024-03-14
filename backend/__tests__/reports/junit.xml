@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="6" failures="0" errors="0" time="4.554">
-  <testsuite name="User Signup" errors="0" failures="0" skipped="0" timestamp="2024-03-13T20:00:50" time="3.914" tests="2">
-    <testcase classname="User Signup Should signup a new user successfully" name="User Signup Should signup a new user successfully" time="0.347">
-    </testcase>
-    <testcase classname="User Login Should login the user successfully" name="User Login Should login the user successfully" time="0.114">
-    </testcase>
-  </testsuite>
-  <testsuite name="Combined Test Including Language Creation" errors="0" failures="0" skipped="0" timestamp="2024-03-13T20:00:50" time="3.995" tests="4">
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="10.062">
+  <testsuite name="Combined Test Including Language Creation" errors="0" failures="0" skipped="0" timestamp="2024-03-14T14:38:45" time="8.66" tests="4">
     <testcase classname="Combined Test Including Language Creation Adding new language to the Language table should create a new language in the Language table" name="Combined Test Including Language Creation Adding new language to the Language table should create a new language in the Language table" time="0.007">
     </testcase>
-    <testcase classname="Combined Test Including Language Creation Create Exercise should create a new exercise" name="Combined Test Including Language Creation Create Exercise should create a new exercise" time="0.034">
+    <testcase classname="Combined Test Including Language Creation Create Exercise should create a new exercise" name="Combined Test Including Language Creation Create Exercise should create a new exercise" time="0.04">
     </testcase>
-    <testcase classname="Combined Test Including Language Creation MakeASentenceEx Creation should create a new MakeASentenceEx" name="Combined Test Including Language Creation MakeASentenceEx Creation should create a new MakeASentenceEx" time="0.032">
+    <testcase classname="Combined Test Including Language Creation MakeASentenceEx Creation should create a new MakeASentenceEx" name="Combined Test Including Language Creation MakeASentenceEx Creation should create a new MakeASentenceEx" time="0.044">
     </testcase>
-    <testcase classname="Combined Test Including Language Creation ImageToTextEx Creation should create a new ImageToTextEx" name="Combined Test Including Language Creation ImageToTextEx Creation should create a new ImageToTextEx" time="0.036">
+    <testcase classname="Combined Test Including Language Creation ImageToTextEx Creation should create a new ImageToTextEx" name="Combined Test Including Language Creation ImageToTextEx Creation should create a new ImageToTextEx" time="0.035">
+    </testcase>
+  </testsuite>
+  <testsuite name="User Signup" errors="0" failures="0" skipped="0" timestamp="2024-03-14T14:38:45" time="8.864" tests="2">
+    <testcase classname="User Signup Should signup a new user successfully" name="User Signup Should signup a new user successfully" time="0.797">
+    </testcase>
+    <testcase classname="User Login Should login the user successfully" name="User Login Should login the user successfully" time="0.146">
     </testcase>
   </testsuite>
 </testsuites>

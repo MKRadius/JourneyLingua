@@ -15,7 +15,7 @@ interface ImageToTextExRequest {
     languageId: number;
 }
 
- //router.use(requireAuth);
+ // router.use(requireAuth);
 router.post('/lesson/imageToTextEx', async (req, res) => {
     try {
         const {wordEng, wordFin, category, subCategory, imageLink, exerciseId, languageId} = req.body;
@@ -49,28 +49,6 @@ router.post('/lesson/imageToTextEx', async (req, res) => {
 
 export default router;
 
-// commented out for testing purposes
-
-// router.get('/lesson/imageToTextEx/:id', async (req, res) => {
-//     const {id} = req.params;
-//
-//     try {
-//         const exercise = await prisma.imageToTextEx.findUnique({
-//             where: {
-//                 wordId: parseInt(id)
-//             }
-//         });
-//
-//         if (!exercise) {
-//             return res.status(404).json({error: "Exercise not found"});
-//         }
-//
-//         res.json(exercise);
-//     } catch (error) {
-//         console.error("Error fetching exercise:", error);
-//         res.status(500).json({error: "Internal server error"});
-//     }
-// });
 
 // Works. Pulling a random record from the table
 router.get('/lesson/imageToTextEx/random', async (req, res) => {

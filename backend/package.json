@@ -6,7 +6,8 @@
     "test": "jest",
     "start": "node server.ts",
     "dev": "nodemon server.ts",
-    "coverage": "jest --coverage --watchAll"
+    "mochatest": "jenkins-mocha __tests__/*",
+    "coverage": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "@types/jsonwebtoken": "^9.0.6",
     "@types/mocha": "^10.0.6",
     "@types/supertest": "^6.0.2",
+    "jenkins-mocha": "^11.0.0",
     "jest": "^29.7.0",
     "jest-html-reporters": "^3.1.7",
     "jest-junit": "^16.0.0",

@@ -102,16 +102,31 @@ npm start
 ---
 ## Tests
 
-TODO 
+<p align="left"><img alt="unit tests report" src="./readmeResources/unitTests.webp" /></p>
 
-Describe the tests and how to run them.
+To run unit test
+
+```bash
+cd backend
+
+npx jest
+```
+Jest will test all the essential routes in the backend
 
 ---
 ## Code Coverage
 
-TODO
+<p align="left"><img alt="unit tests report" src="./readmeResources/codeCoverage.webp" /></p>
 
-Need to explain how to run code coverage and view the results.
+To run the code coverage using Jest
+
+```bash
+cd .\backend\__tests__\
+
+npx jest --coverage
+```
+Jest will execute all your tests and generate a coverage report at the end
+
 
 ---
 ## Running the Application with Docker
@@ -196,14 +211,14 @@ Once the Docker container is running, you can access the application in your web
     - Jenkins will checkout the code, build the frontend and backend, build a Docker image, and push it to DockerHub.
 
 
-<p align="left"><img alt="UseCaseDiagram" src="./readmeResources/jenkins_pipeline.png" /></p>
+<p align="left"><img alt="Jenkins Pipeline" src="./readmeResources/jenkins_pipeline.png" /></p>
 
 ---
 ## Architectural Design
 
 ### Use Case Diagram
 
-<p align="center"><img alt="UseCaseDiagram" src="./readmeResources/UseCaseDiagram.png" /></p>
+<p align="center"><img alt="Use Case Diagram" src="./readmeResources/UseCaseDiagram.png" /></p>
 
 ### ER Diagram
 
@@ -251,26 +266,6 @@ If authentication fails, the API responds with a `401 Unauthorized` status code.
 
 ## API Endpoints
 
-[//]: # (JUST FOR TESTS)
-
-[//]: # (### User Actions)
-
-[//]: # ()
-[//]: # (#### Delete User)
-
-[//]: # ()
-[//]: # (- **Endpoint:** `/deleteUser/:userId`)
-
-[//]: # (- **Method:** DELETE)
-
-[//]: # (- **Auth Required:** Yes)
-
-[//]: # (- **Description:** Deletes a user from the database based on the user ID provided in the URL path.)
-
-[//]: # (- **URL Parameters:**)
-
-[//]: # (   - `userId` &#40;number&#41;: ID of the user.)
-
 ### Language Exercises
 
 #### Get Random ImageToText Exercise
@@ -280,21 +275,6 @@ If authentication fails, the API responds with a `401 Unauthorized` status code.
 - **Auth Required:** Yes
 - **Description:** Retrieves a random set of ImageToText exercises.
 - **Response:** Returns an array of randomly selected ImageToText exercises.
-
-[//]: # (JUST FOR DEV)
-
-[//]: # (#### Get All ImageToText Exercises)
-
-[//]: # ()
-[//]: # (- **Endpoint:** `/lesson/imageToTextEx`)
-
-[//]: # (- **Method:** GET)
-
-[//]: # (- **Auth Required:** No)
-
-[//]: # (- **Description:** Retrieves all ImageToText exercises.)
-
-[//]: # (- **Response:** Returns an array of all ImageToText exercises.)
 
 #### Create ImageToText Exercise
 
@@ -383,24 +363,6 @@ If authentication fails, the API responds with a `401 Unauthorized` status code.
 - **Response:** Returns a JWT token upon successful signup.
 
 ### User Profile
-
-[//]: # (JUST FOR TESTS)
-
-[//]: # (#### Get All Users)
-
-[//]: # ()
-[//]: # (- **Endpoint:** `/users`)
-
-[//]: # (- **Method:** GET)
-
-[//]: # (- **Auth Required:** No)
-
-[//]: # (- **Description:** Retrieves all users.)
-
-[//]: # (- **Response:** Returns an array of all users.)
-
-
-[//]: # (???)
 
 #### Get User Profile by Username
 
