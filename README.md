@@ -17,9 +17,8 @@ JourneyLingua is a language learning app designed to provide users with engaging
     - [Use Case Diagram](#use-case-diagram)
     - [ER Diagram](#er-diagram)
 10. [Configuration](#configuration)
-11. [File Structure](#file-structure)
-12. [Backend API Documentation](#backend-api-documentation)
-13. [License](#license)
+11. [Backend API Documentation](#backend-api-documentation)
+12. [License](#license)
 
 
 ## Introduction
@@ -241,13 +240,6 @@ Once the Docker container is running, you can access the application in your web
 
 - TypeScript compiler options and project settings are defined in the `frontend/tsconfig.json` file.
 - Vite build tool configuration, including development server settings and build options, can be found in the `frontend/vite.config.ts` file.
-
-___
-## File Structure
-
-TODO
-
-add screen of file structure
 
 ---
 ## Backend API Documentation
