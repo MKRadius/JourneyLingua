@@ -15,7 +15,7 @@ const Profile: React.FC = () => {
         <div className="profile-container">
             <div className="profile">
                 <div className="profile-image">
-                    <img width="150" src="../../public/UserProfileImage.webp" alt="Profile" />
+                    <img width="150" src="../../public/UserProfileImage.png" alt="Profile" />
                 </div>
 
                 <div className="profile-details">
