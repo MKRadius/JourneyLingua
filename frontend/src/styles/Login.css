@@ -63,8 +63,7 @@
 
 .login-form button {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 5px;
     width: 40%;
     padding: 10px;
     background-color: #89e219;
@@ -134,4 +133,51 @@
 .login-svg svg {
     min-height: 700px;
     width: auto;
-}   
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 500px) {
+    .login-form {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .login-form input {
+        width: 70%;
+    }
+
+    .login-form h1 {
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    .login-form h1 {
+        font-size: 25px;
+    }
+
+    .login-form input {
+        width: 80%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4rem;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .login-form button {
+        width: 50%;
+    }
+
+    .register-link{
+        flex-direction: column;
+    }
+
+    p {
+        margin: 7px auto;
+    }
+}
