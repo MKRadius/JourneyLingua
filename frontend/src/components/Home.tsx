@@ -5,7 +5,7 @@ const Home: React.FC = () => {
         <div>
             <div className="home-container">
                 <h1>Welcome to JourneyLingua</h1>
-                <p>Start your language learning journey today!</p>
+                <p>Start your language learning journey <b>today!</b></p>
                 <button className="start-learning-button">Start Learning</button>
             </div>
         </div>

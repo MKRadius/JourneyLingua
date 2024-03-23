@@ -15,7 +15,8 @@
     align-items: center;
     height: 90vh;
     position: relative;
-    z-index: 1; 
+    z-index: 1;
+    margin-top: 75px;
 
     overflow: hidden;
 }
@@ -136,4 +137,39 @@
 .register-svg svg {
     min-height: 700px;
     width: auto;
-}   
+}
+
+@media only screen and (max-width: 450px) {
+    .register-form {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .register-form h1 {
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+
+    .register-form input {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .register-form {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .register-form h1 {
+        font-size: 25px;
+    }
+
+    .register-form input {
+        width: 80%;
+    }
+
+    .register-form button {
+        width: 50%;
+    }
+}

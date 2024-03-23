@@ -15,24 +15,28 @@ const Profile: React.FC = () => {
         <div className="profile-container">
             <div className="profile">
                 <div className="profile-image">
-                    <img width="150" src="../../public/UserProfileImage.png" alt="Profile" />
+                    <img src="../../public/UserProfileImage.png" alt="Profile" />
                 </div>
 
                 <div className="profile-details">
                     {jsonData ? (
                         <>
+                            <div className="user-data">
                             <h3>{jsonData.username}</h3>
                             <p>First Name: {jsonData.firstname}</p>
                             <p>Last Name: {jsonData.lastname}</p>
                             <p>Email: {jsonData.email}</p>
+                            </div>
                         </>
                     ) : (
                         <>
+                        <div className="user-data">
                             <h3>Username</h3>
                             <p>First Name: </p>
                             <p>Last Name: </p>
                             <p>Email: </p>
                             {/*<p>Streak: </p>*/}
+                        </div>
                         </>
                     )}
 

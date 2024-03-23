@@ -1,5 +1,10 @@
+.exercise-container {
+    min-height: 350px;
+    max-width: 100%;
+}
+
 .sentence {
-    margin: 130px 0 20px 0;
+    margin: 70px 0 20px;
     font-size: 24px;
 }
 
@@ -34,4 +39,28 @@
 
 .answer-container button:hover {
     background-color: #98f02d;
+}
+
+@media only screen and (max-width: 768px) {
+    .sentence {
+        background-color: #89e219;
+    }
+
+    .answer-container input {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .exercise-container {
+        min-height: 300px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .answer-container input {
+        width: 95%;
+    }
 }
