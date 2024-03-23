@@ -15,7 +15,8 @@
     align-items: center;
     height: 90vh;
     position: relative;
-    z-index: 1; 
+    z-index: 1;
+    margin-top: 75px;
 
     overflow: hidden;
 }
@@ -136,4 +137,8 @@
 .register-svg svg {
     min-height: 700px;
     width: auto;
-}   
+}
+
+@media only screen and (max-width: 450px) {
+
+}
