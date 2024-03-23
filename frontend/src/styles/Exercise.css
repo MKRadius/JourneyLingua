@@ -62,3 +62,46 @@
     margin: 5px 0 5px 0;
     width: 55%;
 }
+
+
+@media only screen and (max-width: 768px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .exercise-list {
+        width: 85%;
+        justify-content: center;
+        min-height: 300px;
+    }
+
+    .list-button {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .exercise-list {
+        width: 100%;
+        padding: 10px;
+
+    }
+
+    .list-button {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 350px) {
+    .exercise-button {
+        width: 70%;
+    }
+}
+
