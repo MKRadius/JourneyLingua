@@ -15,11 +15,19 @@ const NavBar: React.FC = () => {
     return (
         <div className="container">
             <div className="nav">
-                <div className="nav-logo"><Link to="/">
-                    <h1 className="logo">JourneyLingua</h1></Link>
+
+                <div className="nav-logo">
+                    <div className="logo">
+                        <Link to="/">
+                        <img className="desktop-logo" src="../../public/Journey_Lingua_logo.webp" alt="Company Logo"/>
+                        <img className="mobile-logo" src="../../public/Journey_Lingua_logo_with_text.webp" alt="Company Logo" />
+                        </Link>
+                        </div>
+                    <Link to="/">
+                        <h1 className="logo">JourneyLingua</h1></Link>
                 </div>
 
-                { isAuth && 
+                {isAuth &&
                     <div className="nav-button">
                         <button className="logout-button" onClick={handleLogout}>Log out</button>
                     </div>
