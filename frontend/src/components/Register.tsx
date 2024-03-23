@@ -7,6 +7,8 @@ import "../styles/Register.css";
 import {StateField} from "../interfaces/Field";
 import {createInputField} from "../utils/InputField";
 import { useAuthContext } from "../hooks/useContext";
+import { useIntl } from 'react-intl';
+import { FormattedMessage } from "react-intl";
 
 const Register: React.FC = () => {
     const [username, setUsername] = useState("");
@@ -18,14 +20,15 @@ const Register: React.FC = () => {
 
     const { dispatch } = useAuthContext();
     const navigate = useNavigate();
+    const intl = useIntl();
 
     const signupCriteria: StateField[] = [
-        createInputField(0, "text", username, "Username", setUsername),
-        createInputField(1, "password", password, "Password", setPassword),
-        createInputField(2, "password", confirmPassword, "Confirm Password", setConfirmPassword),
-        createInputField(3, "email", email, "Email", setEmail),
-        createInputField(4, "text", firstname, "First Name", setFirstname),
-        createInputField(5, "text", lastname, "Last Name", setLastname)
+        createInputField(0, "text", username, "placeholder.username", setUsername),
+        createInputField(1, "password", password, "placeholder.username", setPassword),
+        createInputField(2, "password", confirmPassword, "placeholder.confirmPassword", setConfirmPassword),
+        createInputField(3, "email", email, "placeholder.email", setEmail),
+        createInputField(4, "text", firstname, "placeholder.firstname", setFirstname),
+        createInputField(5, "text", lastname, "placeholder.lastname", setLastname)
     ];
 
     const handleSubmit = async (e: any) => {
@@ -94,17 +97,17 @@ const Register: React.FC = () => {
 
             <div className="register-container">
                 <form className="register-form" onSubmit={handleSubmit}>
-                    <h1>Sign Up</h1>
+                    <h1><FormattedMessage id="register.register"/></h1>
                     {signupCriteria.map((c) => (
                         <input
                             key={c.id}
                             type={c.type}
                             value={c.value}
-                            placeholder={c.placeholder}
+                            placeholder={intl.formatMessage({ id: c.placeholderId })}
                             onChange={c.func}
                         />
                     ))}
-                    <button>Sign Up</button>
+                    <button><FormattedMessage id="register.register"/></button>
                 </form>
             </div>
         </>

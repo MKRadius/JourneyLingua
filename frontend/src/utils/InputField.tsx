@@ -4,12 +4,12 @@ export const createInputField = (
     id: number,
     type: string,
     value: string,
-    placeholder: string,
+    placeholderId: string, // Accept message ID for placeholder
     setValue: React.Dispatch<React.SetStateAction<string>>
 ): StateField => ({
     id,
     type,
     value,
-    placeholder,
+    placeholderId, // Store message ID in the placeholderId property
     func: (e) => setValue(e.target.value)
 });

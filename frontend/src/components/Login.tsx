@@ -5,6 +5,8 @@ import "../styles/Login.css";
 import { login } from "../hooks/loginHooks";
 import { StateField } from "../interfaces/Field";
 import { createInputField } from "../utils/InputField";
+import { FormattedMessage } from "react-intl";
+import { useIntl } from 'react-intl';
 
 // import { ReactSVG } from "react-svg";
 import { useAuthContext } from "../hooks/useContext";
@@ -15,10 +17,11 @@ const Login: React.FC = () => {
 
     const { dispatch } = useAuthContext();
     const navigate = useNavigate();
+    const intl = useIntl();
 
     const loginCriteria: StateField[] = [
-        createInputField(0, "text", username, "Username", setUsername),
-        createInputField(1, "password", password, "Password", setPassword)
+        createInputField(0, "text", username, "placeholder.username", setUsername),
+        createInputField(1, "password", password, "placeholder.password", setPassword)
     ];
 
     const handleSubmit = async (e: any) => {
@@ -63,7 +66,6 @@ const Login: React.FC = () => {
 
     return (
         <>
-
             <div className="login-header">
                 <div className="logo" onClick={() => navigate("/")}>
                     {/* <MdOutlineAddTask className="logo-icon" size={60}/> */}
@@ -73,27 +75,26 @@ const Login: React.FC = () => {
 
             <div className="login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
-                    <h1>Login</h1>
+                    <h1><FormattedMessage id="login.login"/></h1>
                     {loginCriteria.map((c) => (
-                        <input 
+                        <input
                             key={c.id}
                             type={c.type}
                             value={c.value}
-                            placeholder={c.placeholder}
+                            placeholder={intl.formatMessage({ id: c.placeholderId })}
                             onChange={c.func}
-                        />
-                        )
-                    )}
-                    <button type="submit">Login</button>
+                        />    
+                    ))}
+                    <button type="submit"><FormattedMessage id="login.login"/></button>
 
                     <div className="register-link">
-                        <p className="redirect-instruction">Don't have an account?</p>
-                        <p className="redirect-link" onClick={() => navigate("/signup")}>Register</p>
+                        <p className="redirect-instruction"><FormattedMessage id="login.redirectInstruction"/></p>
+                        <p className="redirect-link" onClick={() => navigate("/signup")}><FormattedMessage id="login.register"/></p>
                     </div>
 
                     <div className="forgot-password">
                         {/* <p className="redirect-link" onClick={() => navigate("/ForgotPassword")}>Forgot Password?</p> */}
-                        <p onClick={() => {alert("Then try to remember it xd")}}>Forgot your password?</p>
+                        <p onClick={() => {alert("Then try to remember it xd")}}><FormattedMessage id="login.forgotPassword"/></p>
                     </div>
                 </form>
 

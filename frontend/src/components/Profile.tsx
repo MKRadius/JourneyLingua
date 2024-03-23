@@ -1,5 +1,6 @@
 import "../styles/Profile.css";
 import {useEffect, useState} from "react";
+import {FormattedMessage} from "react-intl";
 
 const Profile: React.FC = () => {
     const [jsonData, setJsonData] = useState<any>(null);
@@ -22,16 +23,16 @@ const Profile: React.FC = () => {
                     {jsonData ? (
                         <>
                             <h3>{jsonData.username}</h3>
-                            <p>First Name: {jsonData.firstname}</p>
-                            <p>Last Name: {jsonData.lastname}</p>
-                            <p>Email: {jsonData.email}</p>
+                            <p><FormattedMessage id="placeholder.firstname"/>: {jsonData.firstname}</p>
+                            <p><FormattedMessage id="placeholder.lastname"/>: {jsonData.lastname}</p>
+                            <p><FormattedMessage id="placeholder.email"/>: {jsonData.email}</p>
                         </>
                     ) : (
                         <>
                             <h3>Username</h3>
-                            <p>First Name: </p>
-                            <p>Last Name: </p>
-                            <p>Email: </p>
+                            <p><FormattedMessage id="placeholder.firstname"/>: </p>
+                            <p><FormattedMessage id="placeholder.lastname"/>: </p>
+                            <p><FormattedMessage id="placeholder.email"/>: </p>
                             {/*<p>Streak: </p>*/}
                         </>
                     )}

@@ -1,5 +1,6 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useContext';
+import { FormattedMessage } from 'react-intl'; // Import FormattedMessage component
 import "../styles/NavBar.css";
 
 const NavBar: React.FC = () => {
@@ -19,19 +20,23 @@ const NavBar: React.FC = () => {
                     <h1 className="logo">JourneyLingua</h1></Link>
                 </div>
 
-                { isAuth && 
-                    <div className="nav-button">
-                        <button className="logout-button" onClick={handleLogout}>Log out</button>
-                    </div>
-                }
 
-                { !isAuth && 
-                    <div className="nav-button">
-                        <button className="login-button" onClick={() => navigate("/login")}>Log in</button>
-                        <button className="register-button" onClick={() => navigate("/signup")}>Register</button>
+                <div className="nav-button">
+                    <div className="language-selector">
+                        <select>
+                            <option value="en">🇺🇸 English</option>
+                            <option value="es">🇵🇹 Português</option>
+                        </select>
                     </div>
-                }
-                
+                    
+                    { isAuth ? 
+                        <button className="logout-button" onClick={handleLogout}><FormattedMessage id="nav.logout"/></button>
+                        : <>
+                            <button className="login-button" onClick={() => navigate("/login")}><FormattedMessage id="nav.login"/></button>
+                            <button className="register-button" onClick={() => navigate("/signup")}><FormattedMessage id="nav.register"/></button>
+                        </>
+                        }
+                </div>
             </div>
         </div>
     )

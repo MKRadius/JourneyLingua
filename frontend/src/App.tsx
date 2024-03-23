@@ -20,11 +20,32 @@ const messages = {
 
 const App: React.FC = () => {
   const { user, token, isAuth } = useAuthContext();
-  const locale = 'es'; // Set default locale here
+  const locale = 'en'; // Set default locale here
   const messages = {
     en: {
       "home.welcome": "Welcome to JourneyLingua",
-      "home.start_learning": "Start Learning"
+      "home.start_learning": "Start Learning",
+
+      "nav.login": "Login",
+      "nav.register": "Register",
+      "nav.logout": "Logout",
+
+      "login.login": "Login",
+      "login.register": "Register",
+      "login.redirectInstruction": "Don't have an account?",
+      "login.forgotPassword": "Forgot Password?",
+
+      "register.register": "Sign Up",
+
+      "placeholder.username": "Username",
+      "placeholder.password": "Password",
+      "placeholder.confirmPassword": "Confirm Password",
+      "placeholder.email": "Email",
+      "placeholder.firstname": "First Name",
+      "placeholder.lastname": "Last Name",
+
+      // "feedback.correct": "Correct!",
+      // "feedback.incorrect": "Incorrect!",
     },
     es: {
       "home.welcome": "Bienvenido a JourneyLingua",

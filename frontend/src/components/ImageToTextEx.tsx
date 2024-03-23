@@ -55,11 +55,11 @@ const ImageToTextEx: React.FC = () => {
         setSelectedAnswer({ word, isCorrect });
         
         if (isCorrect) {
-            console.log("Correct!");
+            // console.log("Correct!");
             setFeedbackMessage("Correct!");
             setCountCorrectAnswer(prevCount => prevCount + 1);
         } else {
-            console.log("Incorrect!");
+            // console.log("Incorrect!");
             setFeedbackMessage("Incorrect!");
         }
 
