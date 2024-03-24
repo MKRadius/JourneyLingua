@@ -16,5 +16,17 @@
       "redirectInstruction": "Don't have an account?",
       "redirectLink": "Register",
       "forgotPassword": "Forgot your password?"
+  },
+  "register": {
+    "title": "Sign Up",
+    "placeholders": {
+      "username": "Username",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "email": "Email",
+      "firstname": "First Name",
+      "lastname": "Last Name"
+    },
+    "button": "Sign Up"
   }
 }

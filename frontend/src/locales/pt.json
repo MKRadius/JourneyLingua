@@ -16,5 +16,17 @@
       "redirectInstruction": "Ainda não tem uma conta?",
       "redirectLink": "Registar",
       "forgotPassword": "Esqueceu-se da sua palavra-passe?"
+    },
+    "register": {
+      "title": "Registar",
+      "placeholders": {
+        "username": "Nome de usuário",
+        "password": "Senha",
+        "confirmPassword": "Confirmar Senha",
+        "email": "E-mail",
+        "firstname": "Nome",
+        "lastname": "Sobrenome"
+      },
+      "button": "Registar"
     }
 }

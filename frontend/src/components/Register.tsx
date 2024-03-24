@@ -1,14 +1,18 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
-
+import { FormattedMessage } from 'react-intl';
 import {register} from "../hooks/registerHooks";
 
 import "../styles/Register.css";
 import {StateField} from "../interfaces/Field";
 import {createInputField} from "../utils/InputField";
 import { useAuthContext } from "../hooks/useContext";
+import enMessages from '../locales/en.json';
+import esMessages from '../locales/es.json';
+import ptMessages from '../locales/pt.json';
 
-const Register: React.FC = () => {
+
+const Register: React.FC<{ locale: 'en' | 'es' | 'pt' }> = ({ locale }) => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,14 +23,21 @@ const Register: React.FC = () => {
     const { dispatch } = useAuthContext();
     const navigate = useNavigate();
 
+    const messages = {
+        en: enMessages,
+        es: esMessages,
+        pt: ptMessages
+    };
+
     const signupCriteria: StateField[] = [
-        createInputField(0, "text", username, "Username", setUsername),
-        createInputField(1, "password", password, "Password", setPassword),
-        createInputField(2, "password", confirmPassword, "Confirm Password", setConfirmPassword),
-        createInputField(3, "email", email, "Email", setEmail),
-        createInputField(4, "text", firstname, "First Name", setFirstname),
-        createInputField(5, "text", lastname, "Last Name", setLastname)
+        createInputField(0, "text", username, messages[locale].register.placeholders.username, setUsername),
+        createInputField(1, "password", password, messages[locale].register.placeholders.password, setPassword),
+        createInputField(2, "password", confirmPassword, messages[locale].register.placeholders.confirmPassword, setConfirmPassword),
+        createInputField(3, "email", email, messages[locale].register.placeholders.email, setEmail),
+        createInputField(4, "text", firstname, messages[locale].register.placeholders.firstname, setFirstname),
+        createInputField(5, "text", lastname, messages[locale].register.placeholders.lastname, setLastname)
     ];
+
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -94,7 +105,9 @@ const Register: React.FC = () => {
 
             <div className="register-container">
                 <form className="register-form" onSubmit={handleSubmit}>
-                    <h1>Sign Up</h1>
+                    <h1>
+                        <FormattedMessage id="register.title" defaultMessage={messages[locale].register.title} />
+                    </h1>
                     {signupCriteria.map((c) => (
                         <input
                             key={c.id}
@@ -104,7 +117,9 @@ const Register: React.FC = () => {
                             onChange={c.func}
                         />
                     ))}
-                    <button>Sign Up</button>
+                    <button>
+                        <FormattedMessage id="register.button" defaultMessage={messages[locale].register.button} />
+                    </button>
                 </form>
             </div>
         </>
