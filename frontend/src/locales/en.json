@@ -1,0 +1,72 @@
+{
+  "home": {
+    "welcome": "Welcome to JourneyLingua",
+    "start_learning": "Start Learning"
+  },
+  "navbar": {
+    "logout": "Log out",
+    "login": "Log in",
+    "register": "Register"
+  },
+  "login": {
+      "title": "Login",
+      "usernamePlaceholder": "Username",
+      "passwordPlaceholder": "Password",
+      "button": "Login",
+      "redirectInstruction": "Don't have an account?",
+      "redirectLink": "Register",
+      "forgotPassword": "Forgot your password?",
+      "alerts": {
+        "fillAllFields": "Please fill in all fields",
+        "incorrectCredentials": "Incorrect username or password",
+        "somethingWentWrong": "Something went wrong. Check your credentials and try again",
+        "forgotPasswordMessage": "Please contact your administrator to reset your password."
+      }
+  },
+  "register": {
+    "title": "Sign Up",
+    "placeholders": {
+      "username": "Username",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "email": "Email",
+      "firstname": "First Name",
+      "lastname": "Last Name"
+    },
+    "button": "Sign Up",
+    "alerts": {
+      "allFieldsRequired": "All fields are required",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "registrationError": "Error occurred while registering user. Please try again.",
+      "registrationSuccess": "User Added Successfully",
+      "unexpectedError": "An unexpected error occurred. Please try again later."
+    }
+  },
+  "exercise": {
+    "startLearning": "Start learning",
+    "imageToText": "Image to text",
+    "makeaSentence": "Make a sentence",
+    "randomize": "Randomize",
+    "makeASentenceExercise": "Exercise: Make a sentence",
+    "correctMessage": "Correct!",
+    "incorrectMessage": "Incorrect!",
+    "submitButton": "Submit",
+    "completedTitle": "Completed",
+    "completedMessage": "You've got {countCorrectAnswer} correct!",
+    "goBackButton": "Go back",
+    "answerPlaceholder": "Type your answer here"
+  },
+  "profile": {
+    "firstName": "First Name:",
+    "lastName": "Last Name:",
+    "email": "Email:"
+  },
+  "imageToTextExercise": {
+    "imageToText": "Exercise: Image to Text",
+    "correctMessage": "Correct!",
+    "incorrectMessage": "Incorrect!",
+    "completedTitle": "Completed",
+    "completedMessage": "You did {countCorrectAnswer} correct!",
+    "goBackButton": "Go back"
+  }
+}

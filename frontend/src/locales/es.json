@@ -1,0 +1,72 @@
+{
+  "home": {
+    "welcome": "Bienvenido a JourneyLingua",
+    "start_learning": "Comenzar a Aprender"
+  },
+  "navbar": {
+    "logout": "Cerrar sesión",
+    "login": "Iniciar sesión",
+    "register": "Registrarse"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "usernamePlaceholder": "Nombre de usuario",
+    "passwordPlaceholder": "Contraseña",
+    "button": "Iniciar sesión",
+    "redirectInstruction": "¿No tienes una cuenta?",
+    "redirectLink": "Registrarse",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "alerts": {
+      "fillAllFields": "Por favor, complete todos los campos",
+      "incorrectCredentials": "Nombre de usuario o contraseña incorrectos",
+      "somethingWentWrong": "Algo salió mal. Verifique sus credenciales e inténtelo nuevamente",
+      "forgotPasswordMessage": "Por favor, contacte a su administrador para restablecer su contraseña."
+    }
+  },
+  "register": {
+    "title": "Registrarse",
+    "placeholders": {
+      "username": "Nombre de usuario",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "email": "Correo electrónico",
+      "firstname": "Nombre",
+      "lastname": "Apellido"
+    },
+    "button": "Registrarse",
+    "alerts": {
+      "allFieldsRequired": "Todos los campos son obligatorios",
+      "passwordsDoNotMatch": "Las contraseñas no coinciden",
+      "registrationError": "Se produjo un error al registrar al usuario. Por favor, inténtelo de nuevo.",
+      "registrationSuccess": "Usuario agregado exitosamente",
+      "unexpectedError": "Se produjo un error inesperado. Por favor, inténtelo de nuevo más tarde."
+    }
+  },
+  "exercise": {
+    "startLearning": "Comenzar a aprender",
+    "imageToText": "Imagen a texto",
+    "makeaSentence": "Crear una oración",
+    "randomize": "Aleatorio",
+    "makeASentenceExercise": "Ejercicio: Crear una oración",
+    "correctMessage": "¡Correcto!",
+    "incorrectMessage": "Incorrecto!",
+    "submitButton": "Enviar",
+    "completedTitle": "Completado",
+    "completedMessage": "¡Has acertado {countCorrectAnswer} veces!",
+    "goBackButton": "Regresar",
+    "answerPlaceholder": "Escribe tu respuesta aquí"
+  },
+  "profile": {
+    "firstName": "Nombre:",
+    "lastName": "Apellido:",
+    "email": "Correo electrónico:"
+  },
+  "imageToTextExercise": {
+    "imageToText": "Ejercicio: Imagen a Texto",
+    "correctMessage": "¡Correcto!",
+    "incorrectMessage": "¡Incorrecto!",
+    "completedTitle": "Completado",
+    "completedMessage": "¡Acertaste {countCorrectAnswer} veces!",
+    "goBackButton": "Volver"
+  }
+}
