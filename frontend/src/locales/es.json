@@ -47,7 +47,14 @@
     "imageToText": "Imagen a texto",
     "makeaSentence": "Crear una oración",
     "randomize": "Aleatorio",
-    "makeASentenceExercise": "Ejercicio: Crear una oración"
+    "makeASentenceExercise": "Ejercicio: Crear una oración",
+    "correctMessage": "¡Correcto!",
+    "incorrectMessage": "Incorrecto!",
+    "submitButton": "Enviar",
+    "completedTitle": "Completado",
+    "completedMessage": "¡Has acertado {countCorrectAnswer} veces!",
+    "goBackButton": "Regresar",
+    "answerPlaceholder": "Escribe tu respuesta aquí"
   },
   "profile": {
     "firstName": "Nombre:",

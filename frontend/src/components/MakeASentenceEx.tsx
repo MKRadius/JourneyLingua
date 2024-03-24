@@ -72,7 +72,7 @@ const MakeASentenceEx: React.FC<Props> = ({ locale }) => {
       userAnswer.trim().toLowerCase() ===
       exercise?.[index].sentenceFin.toLowerCase();
     setSelectedAnswer({ sentence: userAnswer, isCorrect });
-    setFeedbackMessage(isCorrect ? "Correct!" : "Incorrect!");
+    setFeedbackMessage(isCorrect ? messages[locale].exercise.correctMessage : messages[locale].exercise.incorrectMessage);
 
     if (isCorrect) {
       setCountCorrectAnswer((prevCount) => prevCount + 1);
@@ -108,10 +108,15 @@ const MakeASentenceEx: React.FC<Props> = ({ locale }) => {
                 <input
                   onChange={(e) => setUserAnswer(e.target.value)}
                   type="text"
-                  placeholder="Type your answer here"
+                  placeholder={messages[locale].exercise.answerPlaceholder}
                   value={userAnswer}
                 />
-                <button onClick={handleUserAnswer}>Submit</button>
+                <button onClick={handleUserAnswer}>
+                  <FormattedMessage
+                    id="exercise.submit"
+                    defaultMessage={messages[locale].exercise.submitButton}
+                  />
+                </button>
               </div>
               {feedbackMessage && (
                 <div
@@ -123,10 +128,24 @@ const MakeASentenceEx: React.FC<Props> = ({ locale }) => {
             </>
           ) : (
             <div className="message-completed">
-              <h1>Completed</h1>
-              <h3>You did {countCorrectAnswer} correct!</h3>
+              <h1>
+                <FormattedMessage
+                  id="exercise.completed"
+                  defaultMessage={messages[locale].exercise.completedTitle}
+                />
+              </h1>
+              <h3>
+                <FormattedMessage
+                    id="exercise.completedMessage"
+                    defaultMessage={messages[locale].exercise.completedMessage}
+                    values={{ countCorrectAnswer }} // Directly pass the variable
+                />
+                </h3>
               <button className="navigate-button" onClick={() => navigate("/")}>
-                Go back
+                <FormattedMessage
+                  id="exercise.goBack"
+                  defaultMessage={messages[locale].exercise.goBackButton}
+                />
               </button>
             </div>
           )}

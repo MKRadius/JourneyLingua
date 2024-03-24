@@ -47,7 +47,14 @@
     "imageToText": "Image to text",
     "makeaSentence": "Make a sentence",
     "randomize": "Randomize",
-    "makeASentenceExercise": "Exercise: Make a sentence"
+    "makeASentenceExercise": "Exercise: Make a sentence",
+    "correctMessage": "Correct!",
+    "incorrectMessage": "Incorrect!",
+    "submitButton": "Submit",
+    "completedTitle": "Completed",
+    "completedMessage": "You've got {countCorrectAnswer} correct!",
+    "goBackButton": "Go back",
+    "answerPlaceholder": "Type your answer here"
   },
   "profile": {
     "firstName": "First Name:",
