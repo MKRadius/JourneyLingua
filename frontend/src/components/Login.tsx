@@ -34,8 +34,8 @@ const Login: React.FC<Props> = ({ locale }) => {
     const navigate = useNavigate();
 
     const loginCriteria: StateField[] = [
-        createInputField(0, "text", username, "Username", setUsername),
-        createInputField(1, "password", password, "Password", setPassword)
+        createInputField(0, "text", username, messages[locale].login.usernamePlaceholder, setUsername),
+        createInputField(1, "password", password, messages[locale].login.passwordPlaceholder, setPassword)
     ];
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
