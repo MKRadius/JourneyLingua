@@ -1,6 +1,4 @@
-console.error = () => {};
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import Home from './components/Home';
@@ -12,10 +10,8 @@ import './styles/App.css';
 import NavBar from "./components/NavBar.tsx";
 import ImageToTextEx from "./components/ImageToTextEx.tsx";
 import MakeASentenceEx from "./components/MakeASentenceEx.tsx";
-
-// Language translation messages imports
 import enMessages from './locales/en.json';
-import esMessages from './locales/es.json'; 
+import esMessages from './locales/es.json';
 import ptMessages from './locales/pt.json';
 
 const messages = {
@@ -26,12 +22,19 @@ const messages = {
 
 const App: React.FC = () => {
   const { user, token, isAuth } = useAuthContext();
-  const [locale, setLocale] = useState<'en' | 'es' | 'pt'>('en'); // Default locale is English
+  const [locale, setLocale] = useState<'en' | 'es' | 'pt'>(() => {
+    const storedLocale = localStorage.getItem('locale');
+    return storedLocale ? (storedLocale as 'en' | 'es' | 'pt') : 'en';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('locale', locale);
+  }, [locale]);
 
   return (
     <IntlProvider locale={locale} messages={messages[locale]}>
       <BrowserRouter basename='/'>
-      <NavBar locale={locale} setLocale={setLocale} />
+        <NavBar locale={locale} setLocale={setLocale} />
         <Routes>
           <Route path="/" element={ !(user && token && isAuth) ? <Home locale={locale} /> : <Learn locale={locale} /> } />
           <Route path="/login" element={ <Login locale={locale} /> } />
