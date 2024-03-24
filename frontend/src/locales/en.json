@@ -41,5 +41,11 @@
       "registrationSuccess": "User Added Successfully",
       "unexpectedError": "An unexpected error occurred. Please try again later."
     }
+  },
+  "exercise": {
+    "startLearning": "Start learning",
+    "imageToText": "Image to text",
+    "makeaSentence": "Make a sentence",
+    "randomize": "Randomize"
   }
 }

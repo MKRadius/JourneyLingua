@@ -41,5 +41,11 @@
         "registrationSuccess": "Usuário adicionado com sucesso",
         "unexpectedError": "Ocorreu um erro inesperado. Por favor, tente novamente mais tarde."
       }
+    },
+    "exercise": {
+      "startLearning": "Começar a aprender",
+      "imageToText": "Imagem para texto",
+      "makeaSentence": "Construir uma frase",
+      "randomize": "Aleatório"
     }
 }
