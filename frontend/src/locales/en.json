@@ -47,5 +47,10 @@
     "imageToText": "Image to text",
     "makeaSentence": "Make a sentence",
     "randomize": "Randomize"
+  },
+  "profile": {
+    "firstName": "First Name:",
+    "lastName": "Last Name:",
+    "email": "Email:"
   }
 }

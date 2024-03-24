@@ -4,7 +4,7 @@ import Exercise from "./Exercise";
 const Learn: React.FC<{ locale: 'en' | 'es' | 'pt' }> = ({ locale }) => {
     return (
         <>
-            <Profile />
+            <Profile locale={locale} />
             <Exercise locale={locale} />
         </>
     );

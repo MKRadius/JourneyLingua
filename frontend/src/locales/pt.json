@@ -47,5 +47,10 @@
       "imageToText": "Imagem para texto",
       "makeaSentence": "Construir uma frase",
       "randomize": "Aleatório"
+    },
+    "profile": {
+      "firstName": "Nome:",
+      "lastName": "Sobrenome:",
+      "email": "Email:"
     }
 }
