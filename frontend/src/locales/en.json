@@ -60,5 +60,13 @@
     "firstName": "First Name:",
     "lastName": "Last Name:",
     "email": "Email:"
+  },
+  "imageToTextExercise": {
+    "imageToText": "Exercise: Image to Text",
+    "correctMessage": "Correct!",
+    "incorrectMessage": "Incorrect!",
+    "completedTitle": "Completed",
+    "completedMessage": "You did {countCorrectAnswer} correct!",
+    "goBackButton": "Go back"
   }
 }

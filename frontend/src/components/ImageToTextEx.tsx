@@ -1,11 +1,19 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 import "../styles/ImageToTextEx.css";
 
 import { ExerciseImgTxt } from "../interfaces/Exercise";
 import { fetchExercise } from "../hooks/exerciseHooks";
 import { useNavigate } from "react-router-dom";
+import enMessages from '../locales/en.json';
+import esMessages from '../locales/es.json';
+import ptMessages from '../locales/pt.json';
 
-const ImageToTextEx: React.FC = () => {
+interface Props {
+  locale: "en" | "es" | "pt";
+}
+
+const ImageToTextEx: React.FC<Props> = ({ locale }) => {
     const [index, setIndex] = useState<number>(0); 
     const [exercise, setExercise] = useState<ExerciseImgTxt[] | null>(null);
     const [countCorrectAnswer, setCountCorrectAnswer] = useState<number>(0);
@@ -15,6 +23,12 @@ const ImageToTextEx: React.FC = () => {
     const [error, setError] = useState<Error |null>(null);
 
     const navigate = useNavigate();
+
+    const messages = {
+        en: enMessages,
+        es: esMessages,
+        pt: ptMessages
+    };
 
     const getExerciseSet = async () => {
         try {
@@ -56,11 +70,11 @@ const ImageToTextEx: React.FC = () => {
         
         if (isCorrect) {
             console.log("Correct!");
-            setFeedbackMessage("Correct!");
+            setFeedbackMessage(messages[locale].imageToTextExercise.correctMessage);
             setCountCorrectAnswer(prevCount => prevCount + 1);
         } else {
             console.log("Incorrect!");
-            setFeedbackMessage("Incorrect!");
+            setFeedbackMessage(messages[locale].imageToTextExercise.incorrectMessage);
         }
 
         // Wait a bit before going to the next question
@@ -97,9 +111,25 @@ const ImageToTextEx: React.FC = () => {
         else {
             return (
                 <div className="message-completed">
-                    <h1>Completed</h1>
-                    <h3 className="message">You did {countCorrectAnswer}/3 correct!</h3>
-                    <button className="navigate-button" onClick={() => navigate("/")}>Go back</button>
+                    <h1>
+                        <FormattedMessage
+                            id="exercise.completed"
+                            defaultMessage={messages[locale].imageToTextExercise.completedTitle}
+                        />
+                    </h1>
+                    <h3>
+                        <FormattedMessage
+                            id="exercise.completedMessage"
+                            defaultMessage={messages[locale].imageToTextExercise.completedMessage}
+                            values={{ countCorrectAnswer }}
+                        />
+                    </h3>
+                    <button className="navigate-button" onClick={() => navigate("/")}>
+                        <FormattedMessage
+                            id="exercise.goBack"
+                            defaultMessage={messages[locale].imageToTextExercise.goBackButton}
+                        />
+                    </button>
                 </div>
             )
         }
@@ -109,7 +139,12 @@ const ImageToTextEx: React.FC = () => {
     return (
         <div>
             <header className="exercise-header">
-                <h2>Text-Image Exercise</h2>
+                <h2>
+                    <FormattedMessage
+                        id="exercise.imageToText"
+                        defaultMessage={messages[locale].imageToTextExercise.imageToText}
+                    />
+                </h2>
             </header>
             <main className="center">
                 <div className="exercise-container">
