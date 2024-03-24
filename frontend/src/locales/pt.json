@@ -9,10 +9,12 @@
       "register": "Registar"
     },
     "login": {
-      "username": "Username2",
-      "password": "Password2",
-      "login": "Login",
-      "register": "Register",
-      "forgot_password": "Forgot your password?"
+      "title": "Iniciar sessão",
+      "usernamePlaceholder": "Nome de utilizador",
+      "passwordPlaceholder": "Palavra-passe",
+      "button": "Iniciar sessão",
+      "redirectInstruction": "Ainda não tem uma conta?",
+      "redirectLink": "Registar",
+      "forgotPassword": "Esqueceu-se da sua palavra-passe?"
     }
 }

@@ -9,10 +9,12 @@
     "register": "Register"
   },
   "login": {
-    "username": "Username",
-    "password": "Password",
-    "login": "Login",
-    "register": "Register",
-    "forgot_password": "Forgot your password?"
+      "title": "Login",
+      "usernamePlaceholder": "Username",
+      "passwordPlaceholder": "Password",
+      "button": "Login",
+      "redirectInstruction": "Don't have an account?",
+      "redirectLink": "Register",
+      "forgotPassword": "Forgot your password?"
   }
 }

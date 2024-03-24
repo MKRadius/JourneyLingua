@@ -9,7 +9,24 @@ import { createInputField } from "../utils/InputField";
 // import { ReactSVG } from "react-svg";
 import { useAuthContext } from "../hooks/useContext";
 
-const Login: React.FC = () => {
+import { FormattedMessage } from 'react-intl';
+// Import translation messages
+import enMessages from '../locales/en.json';
+import esMessages from '../locales/es.json';
+import ptMessages from '../locales/pt.json';
+
+interface Props {
+    locale: 'en' | 'es' | 'pt';
+}
+  
+
+const Login: React.FC<Props> = ({ locale }) => {
+    const messages = {
+        en: enMessages,
+        es: esMessages,
+        pt: ptMessages
+    };
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -21,7 +38,7 @@ const Login: React.FC = () => {
         createInputField(1, "password", password, "Password", setPassword)
     ];
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (username === "" || password === "") {
@@ -67,13 +84,14 @@ const Login: React.FC = () => {
             <div className="login-header">
                 <div className="logo" onClick={() => navigate("/")}>
                     {/* <MdOutlineAddTask className="logo-icon" size={60}/> */}
-
                 </div>
             </div>
 
             <div className="login-container">
                 <form className="login-form" onSubmit={handleSubmit}>
-                    <h1>Login</h1>
+                    <h1>
+                        <FormattedMessage id="login.title" defaultMessage={messages[locale].login.title} />
+                    </h1>
                     {loginCriteria.map((c) => (
                         <input 
                             key={c.id}
@@ -84,16 +102,24 @@ const Login: React.FC = () => {
                         />
                         )
                     )}
-                    <button type="submit">Login</button>
+                    <button type="submit">
+                        <FormattedMessage id="login.button" defaultMessage={messages[locale].login.button} />
+                    </button>
 
                     <div className="register-link">
-                        <p className="redirect-instruction">Don't have an account?</p>
-                        <p className="redirect-link" onClick={() => navigate("/signup")}>Register</p>
+                        <p className="redirect-instruction">
+                            <FormattedMessage id="login.redirectInstruction" defaultMessage={messages[locale].login.redirectInstruction} />
+                        </p>
+                        <p className="redirect-link" onClick={() => navigate("/signup")}>
+                            <FormattedMessage id="login.redirectLink" defaultMessage={messages[locale].login.redirectLink} />
+                        </p>
                     </div>
 
                     <div className="forgot-password">
                         {/* <p className="redirect-link" onClick={() => navigate("/ForgotPassword")}>Forgot Password?</p> */}
-                        <p onClick={() => {alert("Then try to remember it xd")}}>Forgot your password?</p>
+                        <p onClick={() => {alert("Then try to remember it xd")}}>
+                            <FormattedMessage id="login.forgotPassword" defaultMessage={messages[locale].login.forgotPassword} />
+                        </p>
                     </div>
                 </form>
 
