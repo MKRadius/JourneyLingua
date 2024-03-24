@@ -1,0 +1,73 @@
+{
+    "home": {
+      "welcome": "Добро пожаловать в JourneyLingua",
+      "start_learning": "Начать обучение"
+    },
+    "navbar": {
+      "logout": "Выйти",
+      "login": "Войти",
+      "register": "Регистрация"
+    },
+    "login": {
+      "title": "Вход",
+      "usernamePlaceholder": "Имя пользователя",
+      "passwordPlaceholder": "Пароль",
+      "button": "Войти",
+      "redirectInstruction": "Нет аккаунта?",
+      "redirectLink": "Зарегистрируйтесь",
+      "forgotPassword": "Забыли пароль?",
+      "alerts": {
+        "fillAllFields": "Пожалуйста, заполните все поля",
+        "incorrectCredentials": "Неверное имя пользователя или пароль",
+        "somethingWentWrong": "Что-то пошло не так. Проверьте ваши учетные данные и попробуйте снова",
+        "forgotPasswordMessage": "Пожалуйста, свяжитесь с вашим администратором, чтобы сбросить пароль."
+      }
+    },
+    "register": {
+      "title": "Зарегистрироваться",
+      "placeholders": {
+        "username": "Имя пользователя",
+        "password": "Пароль",
+        "confirmPassword": "Подтвердите пароль",
+        "email": "Эл. почта",
+        "firstname": "Имя",
+        "lastname": "Фамилия"
+      },
+      "button": "Зарегистрироваться",
+      "alerts": {
+        "allFieldsRequired": "Все поля обязательны для заполнения",
+        "passwordsDoNotMatch": "Пароли не совпадают",
+        "registrationError": "Произошла ошибка при регистрации пользователя. Пожалуйста, попробуйте снова.",
+        "registrationSuccess": "Пользователь успешно зарегистрирован",
+        "unexpectedError": "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз позже."
+      }
+    },
+    "exercise": {
+      "startLearning": "Начать обучение",
+      "imageToText": "Изображение в текст",
+      "makeaSentence": "Составьте предложение",
+      "randomize": "Случайный порядок",
+      "makeASentenceExercise": "Упражнение: Составьте предложение",
+      "correctMessage": "Верно!",
+      "incorrectMessage": "Неверно!",
+      "submitButton": "Отправить",
+      "completedTitle": "Завершено",
+      "completedMessage": "Вы правильно ответили на {countCorrectAnswer} вопросов!",
+      "goBackButton": "Вернуться",
+      "answerPlaceholder": "Введите ваш ответ здесь"
+    },
+    "profile": {
+      "firstName": "Имя:",
+      "lastName": "Фамилия:",
+      "email": "Эл. почта:"
+    },
+    "imageToTextExercise": {
+      "imageToText": "Упражнение: Изображение в текст",
+      "correctMessage": "Верно!",
+      "incorrectMessage": "Неверно!",
+      "completedTitle": "Завершено",
+      "completedMessage": "Вы правильно ответили на {countCorrectAnswer} вопросов!",
+      "goBackButton": "Вернуться"
+    }
+  }
+    

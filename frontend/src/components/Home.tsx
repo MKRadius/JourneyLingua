@@ -3,16 +3,22 @@ import { FormattedMessage } from 'react-intl';
 import enMessages from '../locales/en.json';
 import esMessages from '../locales/es.json';
 import ptMessages from '../locales/pt.json';
+import uaMessages from '../locales/ua.json';
+import ruMessages from '../locales/ru.json';
+import vnMessages from '../locales/vn.json';
 
 interface Props {
-  locale: 'en' | 'es' | 'pt';
+  locale: 'en' | 'es' | 'pt' | 'ua' | 'ru' | 'vn';
 }
 
 const Home: React.FC<Props> = ({ locale }) => {
   const messages = {
     en: enMessages,
     es: esMessages,
-    pt: ptMessages
+    pt: ptMessages,
+    ua: uaMessages,
+    ru: ruMessages,
+    vn: vnMessages
   };
 
   return (

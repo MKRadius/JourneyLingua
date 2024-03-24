@@ -10,9 +10,12 @@ import { useAuthContext } from "../hooks/useContext";
 import enMessages from '../locales/en.json';
 import esMessages from '../locales/es.json';
 import ptMessages from '../locales/pt.json';
+import uaMessages from '../locales/ua.json';
+import ruMessages from '../locales/ru.json';
+import vnMessages from '../locales/vn.json';
 
 
-const Register: React.FC<{ locale: 'en' | 'es' | 'pt' }> = ({ locale }) => {
+const Register: React.FC<{ locale: 'en' | 'es' | 'pt' | 'ua' | 'ru'| 'vn' }> = ({ locale }) => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,7 +29,10 @@ const Register: React.FC<{ locale: 'en' | 'es' | 'pt' }> = ({ locale }) => {
     const messages = {
         en: enMessages,
         es: esMessages,
-        pt: ptMessages
+        pt: ptMessages,
+        ua: uaMessages,
+        ru: ruMessages,
+        vn: vnMessages
     };
 
     const signupCriteria: StateField[] = [

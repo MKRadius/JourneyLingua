@@ -8,10 +8,13 @@ import '../styles/NavBar.css';
 import enMessages from '../locales/en.json';
 import esMessages from '../locales/es.json';
 import ptMessages from '../locales/pt.json';
+import uaMessages from '../locales/ua.json';
+import ruMessages from '../locales/ru.json';
+import vnMessages from '../locales/vn.json';
 
 interface Props {
-  locale: 'en' | 'es' | 'pt';
-  setLocale: (locale: 'en' | 'es' | 'pt') => void;
+  locale: 'en' | 'es' | 'pt' | 'ua' | 'ru' | 'vn';
+  setLocale: (locale: 'en' | 'es' | 'pt' | 'ua' | 'ru' |'vn') => void;
 }
 
 const NavBar: React.FC<Props> = ({ locale, setLocale }) => {
@@ -20,9 +23,12 @@ const NavBar: React.FC<Props> = ({ locale, setLocale }) => {
 
     // Select messages based on the locale
     const messages = {
-      en: enMessages,
-      es: esMessages,
-      pt: ptMessages
+        en: enMessages,
+        es: esMessages,
+        pt: ptMessages,
+        ua: uaMessages,
+        ru: ruMessages,
+        vn: vnMessages
     };
 
     const handleLogout = () => {
@@ -48,6 +54,9 @@ const NavBar: React.FC<Props> = ({ locale, setLocale }) => {
                         <option value="en">English</option>
                         <option value="es">Spanish</option>
                         <option value="pt">Portuguese</option>
+                        <option value="ua">Ukrainian</option>
+                        <option value="ru">Russian</option>
+                        <option value="vn">Vietnamese</option>
                     </select>
                 </div>
 

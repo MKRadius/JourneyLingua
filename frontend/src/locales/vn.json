@@ -1,0 +1,73 @@
+{
+    "home": {
+      "welcome": "Chào mừng bạn đến với JourneyLingua",
+      "start_learning": "Bắt đầu học"
+    },
+    "navbar": {
+      "logout": "Đăng xuất",
+      "login": "Đăng nhập",
+      "register": "Đăng ký"
+    },
+    "login": {
+        "title": "Đăng nhập",
+        "usernamePlaceholder": "Tên người dùng",
+        "passwordPlaceholder": "Mật khẩu",
+        "button": "Đăng nhập",
+        "redirectInstruction": "Chưa có tài khoản?",
+        "redirectLink": "Đăng ký",
+        "forgotPassword": "Quên mật khẩu?",
+        "alerts": {
+          "fillAllFields": "Vui lòng điền đầy đủ thông tin",
+          "incorrectCredentials": "Tên người dùng hoặc mật khẩu không chính xác",
+          "somethingWentWrong": "Đã xảy ra lỗi. Vui lòng kiểm tra thông tin đăng nhập và thử lại",
+          "forgotPasswordMessage": "Vui lòng liên hệ với quản trị viên của bạn để đặt lại mật khẩu."
+        }
+    },
+    "register": {
+      "title": "Đăng Ký",
+      "placeholders": {
+        "username": "Tên người dùng",
+        "password": "Mật khẩu",
+        "confirmPassword": "Xác nhận mật khẩu",
+        "email": "Email",
+        "firstname": "Tên",
+        "lastname": "Họ"
+      },
+      "button": "Đăng Ký",
+      "alerts": {
+        "allFieldsRequired": "Tất cả các trường là bắt buộc",
+        "passwordsDoNotMatch": "Mật khẩu không khớp",
+        "registrationError": "Đã xảy ra lỗi khi đăng ký người dùng. Vui lòng thử lại.",
+        "registrationSuccess": "Người dùng đã được thêm thành công",
+        "unexpectedError": "Đã xảy ra lỗi không mong đợi. Vui lòng thử lại sau."
+      }
+    },
+    "exercise": {
+      "startLearning": "Bắt đầu học",
+      "imageToText": "Hình ảnh thành văn bản",
+      "makeaSentence": "Xây dựng câu",
+      "randomize": "Xáo trộn",
+      "makeASentenceExercise": "Bài tập: Xây dựng câu",
+      "correctMessage": "Đúng!",
+      "incorrectMessage": "Sai!",
+      "submitButton": "Gửi",
+      "completedTitle": "Hoàn thành",
+      "completedMessage": "Bạn đã trả lời đúng {countCorrectAnswer} câu!",
+      "goBackButton": "Quay lại",
+      "answerPlaceholder": "Nhập câu trả lời của bạn ở đây"
+    },
+    "profile": {
+      "firstName": "Tên:",
+      "lastName": "Họ:",
+      "email": "Email:"
+    },
+    "imageToTextExercise": {
+      "imageToText": "Bài tập: Hình ảnh thành Văn Bản",
+      "correctMessage": "Đúng!",
+      "incorrectMessage": "Sai!",
+      "completedTitle": "Hoàn thành",
+      "completedMessage": "Bạn đã trả lời đúng {countCorrectAnswer} câu!",
+      "goBackButton": "Quay lại"
+    }
+  }
+  

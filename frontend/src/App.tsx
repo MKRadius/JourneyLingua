@@ -13,18 +13,24 @@ import MakeASentenceEx from "./components/MakeASentenceEx.tsx";
 import enMessages from './locales/en.json';
 import esMessages from './locales/es.json';
 import ptMessages from './locales/pt.json';
+import uaMessages from './locales/ua.json';
+import ruMessages from './locales/ru.json';
+import vnMessages from './locales/vn.json';
 
 const messages = {
   en: enMessages,
   es: esMessages,
-  pt: ptMessages
+  pt: ptMessages,
+  ua: uaMessages,
+  ru: ruMessages,
+  vn: vnMessages
 };
 
 const App: React.FC = () => {
   const { user, token, isAuth } = useAuthContext();
-  const [locale, setLocale] = useState<'en' | 'es' | 'pt'>(() => {
+  const [locale, setLocale] = useState<'en' | 'es' | 'pt' | 'ua' | 'ru' | 'vn'>(() => {
     const storedLocale = localStorage.getItem('locale');
-    return storedLocale ? (storedLocale as 'en' | 'es' | 'pt') : 'en';
+    return storedLocale ? (storedLocale as 'en' | 'es' | 'pt' | 'ua' | 'ru' | 'vn') : 'en';
   });
 
   useEffect(() => {

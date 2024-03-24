@@ -1,0 +1,73 @@
+{
+    "home": {
+      "welcome": "Ласкаво просимо до JourneyLingua",
+      "start_learning": "Почати навчання"
+    },
+    "navbar": {
+      "logout": "Вийти",
+      "login": "Увійти",
+      "register": "Зареєструватися"
+    },
+    "login": {
+      "title": "Вхід",
+      "usernamePlaceholder": "Ім'я користувача",
+      "passwordPlaceholder": "Пароль",
+      "button": "Увійти",
+      "redirectInstruction": "Не маєте акаунту?",
+      "redirectLink": "Зареєструйтесь",
+      "forgotPassword": "Забули пароль?",
+      "alerts": {
+        "fillAllFields": "Будь ласка, заповніть всі поля",
+        "incorrectCredentials": "Невірне ім'я користувача або пароль",
+        "somethingWentWrong": "Щось пішло не так. Перевірте ваші дані та спробуйте ще раз",
+        "forgotPasswordMessage": "Будь ласка, зв'яжіться з вашим адміністратором, щоб скинути пароль."
+      }
+    },
+    "register": {
+      "title": "Зареєструватися",
+      "placeholders": {
+        "username": "Ім'я користувача",
+        "password": "Пароль",
+        "confirmPassword": "Підтвердіть пароль",
+        "email": "Ел. пошта",
+        "firstname": "Ім'я",
+        "lastname": "Прізвище"
+      },
+      "button": "Зареєструватися",
+      "alerts": {
+        "allFieldsRequired": "Усі поля обов'язкові для заповнення",
+        "passwordsDoNotMatch": "Паролі не співпадають",
+        "registrationError": "Сталася помилка під час реєстрації користувача. Будь ласка, спробуйте ще раз.",
+        "registrationSuccess": "Користувач успішно зареєстрований",
+        "unexpectedError": "Сталася непередбачена помилка. Будь ласка, спробуйте ще раз пізніше."
+      }
+    },
+    "exercise": {
+      "startLearning": "Почати навчання",
+      "imageToText": "Зображення в текст",
+      "makeaSentence": "Складіть речення",
+      "randomize": "Випадковий порядок",
+      "makeASentenceExercise": "Вправа: Складіть речення",
+      "correctMessage": "Правильно!",
+      "incorrectMessage": "Неправильно!",
+      "submitButton": "Надіслати",
+      "completedTitle": "Завершено",
+      "completedMessage": "Ви правильно відповіли на {countCorrectAnswer} запитань!",
+      "goBackButton": "Повернутися",
+      "answerPlaceholder": "Введіть вашу відповідь тут"
+    },
+    "profile": {
+      "firstName": "Ім'я:",
+      "lastName": "Прізвище:",
+      "email": "Ел. пошта:"
+    },
+    "imageToTextExercise": {
+      "imageToText": "Вправа: Зображення в Текст",
+      "correctMessage": "Правильно!",
+      "incorrectMessage": "Неправильно!",
+      "completedTitle": "Завершено",
+      "completedMessage": "Ви правильно відповіли на {countCorrectAnswer} запитань!",
+      "goBackButton": "Повернутися"
+    }
+  }
+  
