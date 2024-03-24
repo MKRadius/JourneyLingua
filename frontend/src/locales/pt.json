@@ -46,7 +46,8 @@
       "startLearning": "Começar a aprender",
       "imageToText": "Imagem para texto",
       "makeaSentence": "Construir uma frase",
-      "randomize": "Aleatório"
+      "randomize": "Aleatório",
+      "makeASentenceExercise": "Exercício: Faz uma frase"
     },
     "profile": {
       "firstName": "Nome:",

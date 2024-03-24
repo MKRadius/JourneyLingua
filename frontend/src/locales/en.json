@@ -46,7 +46,8 @@
     "startLearning": "Start learning",
     "imageToText": "Image to text",
     "makeaSentence": "Make a sentence",
-    "randomize": "Randomize"
+    "randomize": "Randomize",
+    "makeASentenceExercise": "Exercise: Make a sentence"
   },
   "profile": {
     "firstName": "First Name:",
