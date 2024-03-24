@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import IntlProviderWrapper from './utils/IntlProviderWrapper'; // Import IntlProviderWrapper
+import { IntlProvider } from 'react-intl';
 import Home from './components/Home';
 import Learn from './components/Learn';
 import Login from './components/Login';
@@ -20,20 +20,10 @@ const messages = {
 
 const App: React.FC = () => {
   const { user, token, isAuth } = useAuthContext();
-  const locale = 'es'; // Set default locale here
-  const messages = {
-    en: {
-      "home.welcome": "Welcome to JourneyLingua",
-      "home.start_learning": "Start Learning"
-    },
-    es: {
-      "home.welcome": "Bienvenido a JourneyLingua",
-      "home.start_learning": "Comenzar a Aprender"
-    }
-  };
+  const locale = 'en'; // Set default locale here
 
   return (
-    <IntlProviderWrapper locale={locale} messages={messages[locale]}>
+    <IntlProvider locale={locale} messages={messages[locale]}>
       <BrowserRouter basename='/'>
         <NavBar />
         <Routes>
@@ -45,9 +35,8 @@ const App: React.FC = () => {
           <Route path="/make-a-sentence" element={ (user && token && isAuth) ? <MakeASentenceEx /> : <Login /> } />
         </Routes>
       </BrowserRouter>
-    </IntlProviderWrapper>
+    </IntlProvider>
   );
 };
-
 
 export default App;
