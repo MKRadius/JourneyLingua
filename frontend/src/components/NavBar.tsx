@@ -1,27 +1,38 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 import { useAuthContext } from '../hooks/useContext';
-import { FormattedMessage } from 'react-intl'; // Import FormattedMessage component
-import enMessages from '../locales/en.json'; // Import English translation messages
-import esMessages from '../locales/es.json'; // Import Spanish translation messages
-import "../styles/NavBar.css";
+import { useNavigate, Link } from 'react-router-dom';
+import '../styles/NavBar.css';
 
-// Define the type for translation messages
-type LocaleMessages = typeof enMessages;
+// Import translation messages
+import enMessages from '../locales/en.json';
+import esMessages from '../locales/es.json';
+import ptMessages from '../locales/pt.json';
 
-const NavBar: React.FC = () => {
+interface Props {
+  locale: 'en' | 'es' | 'pt';
+  setLocale: (locale: 'en' | 'es' | 'pt') => void;
+}
+
+const NavBar: React.FC<Props> = ({ locale, setLocale }) => {
     const { isAuth, dispatch } = useAuthContext();
     const navigate = useNavigate();
 
-    // Get the current locale
-    const locale = 'en'; // You can replace this with logic to determine the locale
-
     // Select messages based on the locale
-    const messages: LocaleMessages = locale === 'en' ? enMessages : esMessages;
+    const messages = {
+      en: enMessages,
+      es: esMessages,
+      pt: ptMessages
+    };
 
     const handleLogout = () => {
         dispatch({ type: "LOGOUT", payload: { user: "", token: "" } });
         navigate("/");
+    }
+
+    const handleLocaleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const newLocale = event.target.value as 'en' | 'es' | 'pt';
+        setLocale(newLocale);
     }
 
     return (
@@ -32,18 +43,30 @@ const NavBar: React.FC = () => {
                         <h1 className="logo">JourneyLingua</h1>
                     </Link>
                 </div>
+                <div className="locale-select">
+                    <select value={locale} onChange={handleLocaleChange}>
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="pt">Portuguese</option>
+                    </select>
+                </div>
 
                 {isAuth ?
                     <div className="nav-button">
-                        <button className="logout-button" onClick={handleLogout}><FormattedMessage id="navbar.logout" defaultMessage={messages.navbar.logout} /></button>
+                        <button className="logout-button" onClick={handleLogout}>
+                            <FormattedMessage id="navbar.logout" defaultMessage={messages[locale].navbar.logout} />
+                        </button>
                     </div>
                     :
                     <div className="nav-button">
-                        <button className="login-button" onClick={() => navigate("/login")}><FormattedMessage id="navbar.login" defaultMessage={messages.navbar.login} /></button>
-                        <button className="register-button" onClick={() => navigate("/signup")}><FormattedMessage id="navbar.register" defaultMessage={messages.navbar.register} /></button>
+                        <button className="login-button" onClick={() => navigate("/login")}>
+                            <FormattedMessage id="navbar.login" defaultMessage={messages[locale].navbar.login} />
+                        </button>
+                        <button className="register-button" onClick={() => navigate("/signup")}>
+                            <FormattedMessage id="navbar.register" defaultMessage={messages[locale].navbar.register} />
+                        </button>
                     </div>
                 }
-
             </div>
         </div>
     )

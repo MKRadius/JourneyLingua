@@ -7,5 +7,12 @@
     "logout": "Cerrar sesión",
     "login": "Iniciar sesión",
     "register": "Registrarse"
+  },
+  "login": {
+    "username": "Username1",
+    "password": "Password1",
+    "login": "Login",
+    "register": "Register",
+    "forgot_password": "Forgot your password?"
   }
 }

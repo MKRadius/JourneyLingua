@@ -1,0 +1,18 @@
+{
+    "home": {
+      "welcome": "Bem-vindo a JourneyLingua",
+      "start_learning": "Começar a Aprender"
+    },
+    "navbar": {
+      "logout": "Terminar sessão",
+      "login": "Iniciar sessão",
+      "register": "Registar"
+    },
+    "login": {
+      "username": "Username2",
+      "password": "Password2",
+      "login": "Login",
+      "register": "Register",
+      "forgot_password": "Forgot your password?"
+    }
+}
