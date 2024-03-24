@@ -1,7 +1,11 @@
 {
-    "home": {
-      "welcome": "Welcome to JourneyLingua",
-      "start_learning": "Start Learning"
-    }
+  "home": {
+    "welcome": "Welcome to JourneyLingua",
+    "start_learning": "Start Learning"
+  },
+  "navbar": {
+    "logout": "Log out",
+    "login": "Log in",
+    "register": "Register"
   }
-  
+}

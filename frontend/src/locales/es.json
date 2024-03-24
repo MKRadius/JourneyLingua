@@ -1,6 +1,11 @@
 {
-    "home": {
-      "welcome": "Bienvenido a JourneyLingua",
-      "start_learning": "Comenzar a Aprender"
-    }
+  "home": {
+    "welcome": "Bienvenido a JourneyLingua",
+    "start_learning": "Comenzar a Aprender"
+  },
+  "navbar": {
+    "logout": "Cerrar sesión",
+    "login": "Iniciar sesión",
+    "register": "Registrarse"
+  }
 }
