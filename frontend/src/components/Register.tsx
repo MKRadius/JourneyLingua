@@ -43,12 +43,12 @@ const Register: React.FC<{ locale: 'en' | 'es' | 'pt' }> = ({ locale }) => {
         e.preventDefault();
 
         if (!username || !password || !confirmPassword || !email || !firstname || !lastname) {
-            alert("All fields are required");
+            alert(messages[locale].register.alerts.allFieldsRequired);
             return;
         }
 
         if (password !== confirmPassword) {
-            alert("Passwords do not match");
+            alert(messages[locale].register.alerts.passwordsDoNotMatch);
             return;
         }
 
@@ -66,7 +66,7 @@ const Register: React.FC<{ locale: 'en' | 'es' | 'pt' }> = ({ locale }) => {
 
             if (!response.ok) {
                 console.error("Error in adding user:", response.statusText);
-                alert("Error occurred while registering user. Please try again.");
+                alert(messages[locale].register.alerts.registrationError);
                 return;
             }
 
@@ -82,13 +82,13 @@ const Register: React.FC<{ locale: 'en' | 'es' | 'pt' }> = ({ locale }) => {
                 setLastname("");
                 console.log("New user added:", json);
                 console.log(user);
-                alert("User Added Successfully");
+                alert(messages[locale].register.alerts.registrationSuccess);
                 navigate("/");
             }
 
         } catch (error) {
             console.error("Error occurred during registration:", error);
-            alert("An unexpected error occurred. Please try again later.");
+            alert(messages[locale].register.alerts.unexpectedError);
         }
     };
 

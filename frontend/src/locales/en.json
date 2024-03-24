@@ -15,7 +15,13 @@
       "button": "Login",
       "redirectInstruction": "Don't have an account?",
       "redirectLink": "Register",
-      "forgotPassword": "Forgot your password?"
+      "forgotPassword": "Forgot your password?",
+      "alerts": {
+        "fillAllFields": "Please fill in all fields",
+        "incorrectCredentials": "Incorrect username or password",
+        "somethingWentWrong": "Something went wrong. Check your credentials and try again",
+        "forgotPasswordMessage": "Please contact your administrator to reset your password."
+      }
   },
   "register": {
     "title": "Sign Up",
@@ -27,6 +33,13 @@
       "firstname": "First Name",
       "lastname": "Last Name"
     },
-    "button": "Sign Up"
+    "button": "Sign Up",
+    "alerts": {
+      "allFieldsRequired": "All fields are required",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "registrationError": "Error occurred while registering user. Please try again.",
+      "registrationSuccess": "User Added Successfully",
+      "unexpectedError": "An unexpected error occurred. Please try again later."
+    }
   }
 }

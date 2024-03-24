@@ -15,7 +15,13 @@
     "button": "Iniciar sesión",
     "redirectInstruction": "¿No tienes una cuenta?",
     "redirectLink": "Registrarse",
-    "forgotPassword": "¿Olvidaste tu contraseña?"
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "alerts": {
+      "fillAllFields": "Por favor, complete todos los campos",
+      "incorrectCredentials": "Nombre de usuario o contraseña incorrectos",
+      "somethingWentWrong": "Algo salió mal. Verifique sus credenciales e inténtelo nuevamente",
+      "forgotPasswordMessage": "Por favor, contacte a su administrador para restablecer su contraseña."
+    }
   },
   "register": {
     "title": "Registrarse",
@@ -27,6 +33,13 @@
       "firstname": "Nombre",
       "lastname": "Apellido"
     },
-    "button": "Registrarse"
+    "button": "Registrarse",
+    "alerts": {
+      "allFieldsRequired": "Todos los campos son obligatorios",
+      "passwordsDoNotMatch": "Las contraseñas no coinciden",
+      "registrationError": "Se produjo un error al registrar al usuario. Por favor, inténtelo de nuevo.",
+      "registrationSuccess": "Usuario agregado exitosamente",
+      "unexpectedError": "Se produjo un error inesperado. Por favor, inténtelo de nuevo más tarde."
+    }
   }
 }

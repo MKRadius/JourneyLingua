@@ -42,7 +42,7 @@ const Login: React.FC<Props> = ({ locale }) => {
         e.preventDefault();
 
         if (username === "" || password === "") {
-            alert("Please fill in all fields");
+            alert(messages[locale].login.alerts.fillAllFields);
             return;
         }
 
@@ -61,7 +61,7 @@ const Login: React.FC<Props> = ({ locale }) => {
                 console.log("Error in logging in");
                 console.log(response);
                 console.log(json);
-                alert("Incorrect username or password");
+                alert(messages[locale].login.alerts.incorrectCredentials);
             }
             if (response.ok) {
                 console.log(json);
@@ -73,7 +73,7 @@ const Login: React.FC<Props> = ({ locale }) => {
             }
         }catch (error) {
             console.error("Failed to login", error);
-            alert("Something went wrong. Check your credentials and try again");
+            alert(messages[locale].login.alerts.somethingWentWrong);
         }
 
     }
@@ -117,7 +117,10 @@ const Login: React.FC<Props> = ({ locale }) => {
 
                     <div className="forgot-password">
                         {/* <p className="redirect-link" onClick={() => navigate("/ForgotPassword")}>Forgot Password?</p> */}
-                        <p onClick={() => {alert("Then try to remember it xd")}}>
+                        <p onClick={() => {
+                            const forgotPasswordMessage = messages[locale].login.alerts.forgotPasswordMessage;
+                            alert(forgotPasswordMessage);
+                        }}>
                             <FormattedMessage id="login.forgotPassword" defaultMessage={messages[locale].login.forgotPassword} />
                         </p>
                     </div>
