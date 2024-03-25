@@ -17,6 +17,7 @@ import ptMessages from '../locales/pt.json';
 import uaMessages from '../locales/ua.json';
 import ruMessages from '../locales/ru.json';
 import vnMessages from '../locales/vn.json';
+import {UserLogin} from "../interfaces/User.tsx";
 
 interface Props {
     locale: 'en' | 'es' | 'pt' | 'ua' | 'ru' | 'vn';
@@ -52,7 +53,7 @@ const Login: React.FC<Props> = ({ locale }) => {
             return;
         }
 
-        const loginData = {
+        const loginData : UserLogin = {
             username: username,
             password: password
         }
@@ -71,7 +72,7 @@ const Login: React.FC<Props> = ({ locale }) => {
             }
             if (response.ok) {
                 console.log(json);
-                dispatch({ type: "LOGIN", payload: { user: json.user['username'], token: json.token } });
+                dispatch({ type: "LOGIN", payload: { user: json.user, token: json.token } });
                 setUsername("");
                 setPassword("");
                 localStorage.setItem("userData", JSON.stringify(json.user));

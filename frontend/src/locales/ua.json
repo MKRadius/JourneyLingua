@@ -6,7 +6,7 @@
     "navbar": {
       "logout": "Вийти",
       "login": "Увійти",
-      "register": "Зареєструватися"
+      "register": "Реєстрація"
     },
     "login": {
       "title": "Вхід",
@@ -57,6 +57,7 @@
       "answerPlaceholder": "Введіть вашу відповідь тут"
     },
     "profile": {
+      "username": "Ім'я користувача",
       "firstName": "Ім'я:",
       "lastName": "Прізвище:",
       "email": "Ел. пошта:"

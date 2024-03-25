@@ -57,6 +57,7 @@
     "answerPlaceholder": "Escribe tu respuesta aquí"
   },
   "profile": {
+    "username": "Nombre de usuario",
     "firstName": "Nombre:",
     "lastName": "Apellido:",
     "email": "Correo electrónico:"

@@ -57,6 +57,7 @@
       "answerPlaceholder": "Nhập câu trả lời của bạn ở đây"
     },
     "profile": {
+      "username": "Tên người dùng",
       "firstName": "Tên:",
       "lastName": "Họ:",
       "email": "Email:"

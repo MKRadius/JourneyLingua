@@ -13,6 +13,7 @@ import ptMessages from '../locales/pt.json';
 import uaMessages from '../locales/ua.json';
 import ruMessages from '../locales/ru.json';
 import vnMessages from '../locales/vn.json';
+import {UserRegister} from "../interfaces/User.tsx";
 
 
 const Register: React.FC<{ locale: 'en' | 'es' | 'pt' | 'ua' | 'ru'| 'vn' }> = ({ locale }) => {
@@ -58,7 +59,7 @@ const Register: React.FC<{ locale: 'en' | 'es' | 'pt' | 'ua' | 'ru'| 'vn' }> = (
             return;
         }
 
-        const user = {
+        const user: UserRegister = {
             username: username,
             password: password,
             firstname: firstname,
@@ -78,8 +79,8 @@ const Register: React.FC<{ locale: 'en' | 'es' | 'pt' | 'ua' | 'ru'| 'vn' }> = (
 
             if (response.ok) {
                 localStorage.setItem('user', JSON.stringify(json));
-                localStorage.setItem('userData', JSON.stringify(json));
-                dispatch({ type: "LOGIN", payload: { user: json.user['username'], token: json.token } });
+                localStorage.setItem('userData', JSON.stringify(json.user));
+                dispatch({ type: "LOGIN", payload: { user: json.user, token: json.token } });
                 setUsername("");
                 setEmail("");
                 setPassword("");
@@ -87,7 +88,7 @@ const Register: React.FC<{ locale: 'en' | 'es' | 'pt' | 'ua' | 'ru'| 'vn' }> = (
                 setFirstname("");
                 setLastname("");
                 console.log("New user added:", json);
-                console.log(user);
+                // console.log(user);
                 alert(messages[locale].register.alerts.registrationSuccess);
                 navigate("/");
             }

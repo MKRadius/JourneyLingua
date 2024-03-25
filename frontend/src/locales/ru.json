@@ -57,6 +57,7 @@
       "answerPlaceholder": "Введите ваш ответ здесь"
     },
     "profile": {
+      "username": "Имя пользователя",
       "firstName": "Имя:",
       "lastName": "Фамилия:",
       "email": "Эл. почта:"

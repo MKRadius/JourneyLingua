@@ -57,6 +57,7 @@
       "answerPlaceholder": "Digite sua resposta aqui"
     },
     "profile": {
+      "username": "Nome de usuário",
       "firstName": "Nome:",
       "lastName": "Sobrenome:",
       "email": "Email:"

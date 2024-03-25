@@ -10,6 +10,7 @@ import './styles/App.css';
 import NavBar from "./components/NavBar.tsx";
 import ImageToTextEx from "./components/ImageToTextEx.tsx";
 import MakeASentenceEx from "./components/MakeASentenceEx.tsx";
+
 import enMessages from './locales/en.json';
 import esMessages from './locales/es.json';
 import ptMessages from './locales/pt.json';

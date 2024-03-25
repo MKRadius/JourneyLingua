@@ -45,37 +45,56 @@ const NavBar: React.FC<Props> = ({ locale, setLocale }) => {
         <div className="container">
             <div className="nav">
                 <div className="nav-logo">
+                    <div className="logo">
+                        <Link to="/">
+                            <img className="desktop-logo" src="../../public/Journey_Lingua_logo.webp"
+                                 alt="Company Logo"/>
+                            <img className="mobile-logo" src="../../public/Journey_Lingua_logo_with_text.webp"
+                                 alt="Company Logo"/>
+                        </Link>
+                    </div>
                     <Link to="/">
-                        <h1 className="logo">JourneyLingua</h1>
-                    </Link>
+                        <h1 className="logo">JourneyLingua</h1></Link>
                 </div>
-                <div className="locale-select">
-                    <select value={locale} onChange={handleLocaleChange}>
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                        <option value="pt">Portuguese</option>
-                        <option value="ua">Ukrainian</option>
-                        <option value="ru">Russian</option>
-                        <option value="vn">Vietnamese</option>
-                    </select>
-                </div>
+
 
                 {isAuth ?
                     <div className="nav-button">
                         <button className="logout-button" onClick={handleLogout}>
-                            <FormattedMessage id="navbar.logout" defaultMessage={messages[locale].navbar.logout} />
+                            <FormattedMessage id="navbar.logout" defaultMessage={messages[locale].navbar.logout}/>
                         </button>
+                        <div className="locale-select">
+                            <select value={locale} onChange={handleLocaleChange}>
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="pt">Portuguese</option>
+                                <option value="ua">Ukrainian</option>
+                                <option value="ru">Russian</option>
+                                <option value="vn">Vietnamese</option>
+                            </select>
+                        </div>
                     </div>
                     :
                     <div className="nav-button">
                         <button className="login-button" onClick={() => navigate("/login")}>
-                            <FormattedMessage id="navbar.login" defaultMessage={messages[locale].navbar.login} />
+                            <FormattedMessage id="navbar.login" defaultMessage={messages[locale].navbar.login}/>
                         </button>
                         <button className="register-button" onClick={() => navigate("/signup")}>
-                            <FormattedMessage id="navbar.register" defaultMessage={messages[locale].navbar.register} />
+                            <FormattedMessage id="navbar.register" defaultMessage={messages[locale].navbar.register}/>
                         </button>
+                        <div className="locale-select">
+                            <select value={locale} onChange={handleLocaleChange}>
+                                <option value="en">EN</option>
+                                <option value="es">ES</option>
+                                <option value="pt">PT</option>
+                                <option value="ua">UA</option>
+                                <option value="ru">RU</option>
+                                <option value="vn">VN</option>
+                            </select>
+                        </div>
                     </div>
                 }
+
             </div>
         </div>
     )
